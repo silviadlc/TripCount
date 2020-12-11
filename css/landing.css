@@ -1,0 +1,87 @@
+/*Colours:
+
+Main Orange: #CB5A04; (main menus)
+Soft Orange: #D59A34; (submenus)
+Medium Yellow: #DEDA64; (writting)
+Basic Grey: #DEDEDE; (writting)
+Grey blue: #393B82; (submenus)
+Deep Blue: #01068C; (main menus)
+*/
+
+
+/*
+.Header {
+	margin: auto;
+	padding:auto;
+	overflow: visible;
+	width: 100%;
+	height: auto;
+	border: 1px solid red;
+ 	border-radius: 10px;
+	background-color: red;
+
+}
+*/
+
+.Errors{
+	overflow: hidden;
+	margin: auto;
+	padding:auto;
+	width: 100%;
+	height: auto;
+	position: center;
+	display: flex;
+}
+
+.landingButtons{
+	margin: auto;
+	padding:auto;
+	width:25%;
+	height:auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background-color: var(--MOrangeM);
+	border: 1px solid var(--MOrangeM);
+ 	border-radius: 10px;
+	}
+
+.inputButton{
+	background-color: var(--SOrangeM);
+	border-color: var(--MOrangeM);
+}
+
+.SubWelcome{
+	display: flex;
+	margin: 1%;
+	padding:auto;
+	width:100%;
+	height:auto;
+	border: 1px solid var(--GBlueM);
+	background-color: var(--GBlueM);
+	border-radius: 10px;
+	justify-content: center;
+	position: center;
+}
+
+.Welcome{
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	padding:auto;
+	width:100%;
+	height:auto;
+	border: 1px solid var(--DBlueM);
+	background-color: var(--DBlueM);
+	border-radius: 10px;
+	justify-content: center;
+	position: center;
+}
+.SubWelcomeText{
+	color:var(--BGreyT);
+}
+
+.WelcomeText{
+	color: var(--MyellowT);
+}
+
