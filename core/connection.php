@@ -9,6 +9,6 @@
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	} catch(PDOException $e) {
 		if(DEBUG) {
-			echo 'La conexión ha fallado con el siguiente error: '.$e->getMessage();
+			die('La conexión ha fallado con el siguiente error: '.$e->getMessage());
 		}
 	}
