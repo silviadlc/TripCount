@@ -2,7 +2,7 @@
 _TripCount es una apliación que nos permite simplicar el cálculo de los gastos para grupos._
 
 ### Pre-requisitos 📋
-_TripCount no necesita muchos recursos. Podrás utilizarla en cualquier ordenador que tenga acceso al terminal y tenga un navegador actualizado, ya sea Google Chrome, Opera, Firefox, etc. 
+_TripCount no necesita muchos recursos. Podrás utilizarla en cualquier ordenador que tenga acceso al terminal y tenga un navegador actualizado, ya sea Google Chrome, Opera, Firefox, etc._ 
 
 ### Instalación 🔧
 _Estos son los pasos que deberás seguir para poder usar la apliación:_
@@ -16,7 +16,7 @@ _Estos son los pasos que deberás seguir para poder usar la apliación:_
 3. Accede a tu navegador y en tu buscador pon "localhost"
 ```
 ```
-5. Seguidamente te saldrá una estructura de carpetas y tendrás que elegir la que se llame "TripCount"
+4. Seguidamente te saldrá una estructura de carpetas y tendrás que elegir la que se llame "TripCount"
 
 ```
 ## Desarrollada con 🛠️
@@ -25,7 +25,7 @@ _Estos son los pasos que deberás seguir para poder usar la apliación:_
 * Y PHP para el entorno servidor.
 
 ## Autores ✒️
-_Desarroyado por:_
+_Desarrollado por:_
 * **Eduard Sánchez** - [edusnchezj](https://github.com/edusnchezj)
 * **Carlos Jurado** - [kokodemo](https://github.com/kokodemo)
 * **Silvia De La Cruz** - [silviadlc](https://github.com/silviadlc)
