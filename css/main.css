@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+}
+
 :root {
 	--MOrangeM: #CB5A04;
 	--SOrangeM: #D59A34;
@@ -5,6 +9,17 @@
 	--BGreyT: #DEDEDE;
 	--GBlueM: #393B82;
 	--DBlueM: #01068C;
+}
+
+#content {
+	margin: 0 auto;
+	width: 70%;
+}
+
+.content-title {
+	font-weight: normal;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 .alert {
