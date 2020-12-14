@@ -12,6 +12,7 @@
 	border-radius: 10px;
 	overflow: hidden;
 	display: flex;
+	transition: max-height 3s ease-out;
 }
 
 .alert .icon {
@@ -38,7 +39,7 @@
 	border: 3px solid white;
 	padding: 5px 5px;
 	border-radius: 100%;
-	font-weight: bold;
+	font-weight: 900;
 }
 
 .alert.danger {
