@@ -23,65 +23,90 @@ Deep Blue: #01068C; (main menus)
 }
 */
 
-.Errors{
+@font-face {
+	font-family: "LondrinaSolidThin";
+	src: url('LondrinaSolid-Thin.ttf');
+
+	font-family: "LondrinaSolidBlack";
+
+	src: url('LondrinaSolid-Black.ttf');
+
+	font-family: "LondrinaSolidLight";
+	src: url('LondrinaSolid-Light.ttf');
+
+	font-family: "LondrinaSolidRegular";
+	src: url('LondrinaSolid-Regular.ttf');
+
+
+}
+
+html,body {
+	margin:1px;
+	height:100%;
+	font-family: "LondrinaSolidThin";
+}
+
+
+.Errors {
 	overflow: hidden;
-	margin: auto;
-	padding:auto;
 	width: 100%;
 	height: auto;
-	position: center;
+	border-color: red;
+	border: solid 1px;
 	display: flex;
 }
 
-.landingButtons{
-	margin: auto;
-	padding:auto;
-	width:25%;
-	height:auto;
+.landingButtons {	
+	padding:0,5%;
+	width:20%;
+	height:20%;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	background-color: var(--MOrangeM);
 	border: 1px solid var(--MOrangeM);
  	border-radius: 10px;
-	}
-
-.inputButton{
-	background-color: var(--SOrangeM);
-	border-color: var(--MOrangeM);
 }
 
-.SubWelcome{
+.inputButton {
+	background-color: var(--SOrangeM);
+	border-color: var(--MOrangeM);
+	box-shadow: 1px solid;
+	border-radius: 4px;
+}
+
+.SubWelcome {
 	display: flex;
 	margin: 1%;
-	padding:auto;
-	width:100%;
-	height:auto;
+	width:95%;
+	height:30%;
 	border: 1px solid var(--GBlueM);
 	background-color: var(--GBlueM);
 	border-radius: 10px;
 	justify-content: center;
-	position: center;
+	position: flex-start;
+	
 }
 
-.Welcome{
+.Welcome {
 	display: flex;
 	flex-wrap: wrap;
-	margin: auto;
-	padding:auto;
-	width:100%;
-	height:auto;
+	margin: 1%;
+	width:98%;
+	height:98%;
 	border: 1px solid var(--DBlueM);
 	background-color: var(--DBlueM);
 	border-radius: 10px;
 	justify-content: center;
-	position: center;
+	
 }
-.SubWelcomeText{
+.SubWelcomeText {
 	color:var(--BGreyT);
+	font-size:24px;
 }
 
-.WelcomeText{
-	color: var(--MyellowT);
+.WelcomeText {
+	color: var(--MYellowT);
+	font-size: 40px;
 }
 
