@@ -11,6 +11,16 @@
 	--DBlueM: #01068C;
 }
 
+body {
+	font-family: "Londrina Solid";
+	background-image: url(../media/background_body.png);
+	background-size: cover;
+  }
+
+.logo {
+	text-align: center;
+}
+
 #content {
 	margin: 0 auto;
 	width: 70%;
@@ -23,7 +33,7 @@
 }
 
 .alert {
-	margin: 5px;
+	margin: 5px 0px 15px 0px;
 	border-radius: 10px;
 	overflow: hidden;
 	display: flex;
