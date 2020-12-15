@@ -52,12 +52,12 @@
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
 			if($config[parse_url($_SERVER['REQUEST_URI'])['path']] == 0) {
 				if(@$_SESSION['userLogged']) {
-					header('Location: /');
+					header('Location: /home.php');
 					exit;
 				}
 			} else if($config[parse_url($_SERVER['REQUEST_URI'])['path']] == 1) {
 				if(@!$_SESSION['userLogged']) {
-					header('Location: /');
+					header('Location: /login.php');
 					exit;
 				}
 			} else {
