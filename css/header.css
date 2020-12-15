@@ -1,0 +1,39 @@
+html,body {
+	margin:1px;
+	height:100%;
+	font-family: "Londrina Solid";
+  	background-image: url(../media/background_body.png);
+ 	background-size: cover;
+}
+
+.header{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	border-radius: 4px;
+	background-color: var(--DBlueM);
+	border: 1px solid var(--DBlueM);
+	color:var(--MYellowT);
+	padding: 1%;
+	text-decoration: none;
+	overflow: hidden;
+	height: 11%;
+
+}
+
+.house{
+ height:30px;
+ width:30px;
+ color: var(--GBlueT);
+
+ 
+}
+a:link{
+	text-decoration: none;
+
+
+	
+
+
+}

@@ -9,7 +9,10 @@
 </div>
 </header>
 <body>
-
+<?php 
+include('../includes/header.php');
+include('../includes/footer.php');
+ ?>
 </body>
 <footer>
 	
