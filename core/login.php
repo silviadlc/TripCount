@@ -28,7 +28,7 @@
             $result = $query -> fetch();
             
             if($result != false && password_verify($_password, $passwordEncrypt)){
-                $_SESSION['user'] = $result['isUsername'];
+                $_SESSION['user'] = $result['idUsername'];
                 errorMessage('success', 'Usuario y password validados'); 
             } else {
                 errorMessage('error', 'Usuario y password no coinciden');
