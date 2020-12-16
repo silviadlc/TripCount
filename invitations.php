@@ -13,7 +13,7 @@
             </form>
             <button class="newEmail" onclick="addInput()">Añadir</button>    
             <div id="btn">
-                <button class="submit" type="submit" name="login">Enviar</button>
+                <button class="submit" type="submit" name="submit" onclick="sendEmails()">Enviar</button>
             </div> 
         </div>
     <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/footer.php' ?> 

@@ -14,11 +14,13 @@ function selectRedirectOrderInput(valueOrder) {
 }
 
 function addInput() {
-	let form = document.getElementById("form");
-	let input = document.createElement("input");         
-	input.type = 'email';
-	input.placeholder = "Introduce correo electrónico";
-	let newline = document.createElement("br");
+	var form = document.getElementById("form");
+	var newInput = document.createElement("input");    
+	newInput.setAttribute('name',"emailsList[]");     
+	newInput.setAttribute('type', "email");
+	newInput.setAttribute('placeholder',"Introduce correo electrónico");
+	newInput.setAttribute('required','');
+	var newline = document.createElement("br");
 	form.appendChild(newline);
-	form.appendChild(input);
+	form.appendChild(newInput);
 }
