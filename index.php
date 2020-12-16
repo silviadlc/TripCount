@@ -23,7 +23,7 @@
 			<div class="Errors">
 			</div>
 			<div class="SubWelcome">
-				<h3 class="SubWelcomeText">Trip Cuenta es una pagina dedicada a la gestión de gastos en viajes organizados.</h3>
+				<h3 class="SubWelcomeText">Trip Cuenta es una página dedicada a la gestión de gastos en viajes organizados.</h3>
 			</div>
 			<div class="landingButtons">
 				<form method="POST" action="login.php">

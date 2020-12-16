@@ -8,7 +8,6 @@ Grey blue: #393B82; (submenus)
 Deep Blue: #01068C; (main menus)
 */
 
-
 /*
 .Header {
 	margin: auto;
@@ -22,74 +21,73 @@ Deep Blue: #01068C; (main menus)
 
 }
 */
-html,body {
-	margin:0px;
-	height:100%;
-	font-family: "Londrina Solid";
-  	background-image: url(media/background_body.png);
- 	background-size: cover;
-}
-
+/* html,
+body {
+  margin: 0px;
+  height: 100%;
+  font-family: "Londrina Solid";
+  background-image: url(media/background_body.png);
+  background-size: cover;
+} */
 
 .Errors {
-	overflow: hidden;
-	width: 100%;
-	height: auto;
-	display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  display: flex;
 }
 
-.landingButtons {	
-	padding:0,5%;
-	width:20%;
-	height:20%;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	background-color: var(--MOrangeM);
-	border: 2px solid var(--BGreyT);
- 	border-radius: 10px;
- 	box-shadow: 2px 2px 10px var(--GBlueM);
+.landingButtons {
+  padding: 0, 5%;
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--MOrangeM);
+  border: 2px solid var(--BGreyT);
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px var(--GBlueM);
 }
-
 
 .inputButton {
-	background-color: var(--SOrangeM);
-	border-color: var(--MOrangeM);
-	border: none;
-  	cursor: pointer;
-	border-radius: 10px;
+  background-color: var(--SOrangeM);
+  border-color: var(--MOrangeM);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  height: 30px;
+  width: 65px;
 }
 
 button:hover {
   opacity: 0.8;
 }
 
-
-
 .SubWelcome {
-	display: flex;
-	width:97%;
-	height:30%;
-	border: 1px solid var(--GBlueM);
-	background-color: var(--GBlueM);
-	border-radius: 10px;
-	justify-content: center;
-	position: flex-start;
-	
+  display: flex;
+  width: 97%;
+  height: 30%;
+  border: 1px solid var(--GBlueM);
+  background-color: var(--GBlueM);
+  border-radius: 10px;
+  justify-content: center;
+  position: flex-start;
 }
 
 .Welcome {
-	display: flex;
-	flex-wrap: wrap;
-	position: center;
-	margin: 1%;
-	width:98%;
-	height:98%;
-	border: 1px solid var(--DBlueM);
-	background-color: var(--DBlueM);
-	border-radius: 10px;
-	justify-content: center;
-	
+  display: flex;
+  flex-wrap: wrap;
+  position: center;
+  margin: 0 auto;
+  margin-top: 5%;
+  width: 60%;
+  height: 70%;
+  border: 1px solid var(--BGreyT);
+  background-color: var(--DBlueM);
+  border-radius: 10px;
+  justify-content: center;
+  box-shadow: 2px 2px 10px var(--GBlueM);
 }
 /*
 .WelcomeTDiv{
@@ -103,11 +101,13 @@ button:hover {
 }*/
 
 .SubWelcomeText {
-	color:var(--BGreyT);
-	font-size:24px;
+  color: var(--BGreyT);
+  font-size: 24px;
+  margin: 5%;
 }
 
 .WelcomeText {
-	color: var(--MYellowT);
-	font-size: 40px;
+  color: var(--MYellowT);
+  font-size: 40px;
+  margin-top: 5%;
 }

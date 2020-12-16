@@ -1,5 +1,7 @@
 <?php include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php' ?>
-
+<div class="logo">
+	<img src="../media/Logotripcuenta.png">
+</div>
 <div id="content">
 	<h1 class="content-title">Home</h1>
 	<?php
