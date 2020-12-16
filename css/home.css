@@ -18,3 +18,23 @@ button.add {
 #controlsTravel:last-of-type {
 	margin-top: 10px;
 }
+
+form#createTravel {
+	margin: 20px 0px 20px 0px;
+}
+
+form#createTravel fieldset label{
+	display: block;
+	width: 100%;
+	margin: 10px;
+}
+
+form#createTravel fieldset #travelDescription {
+	width: 90%;
+	box-sizing: border-box;
+	resize: vertical;
+}
+
+form#createTravel {
+	display: none;
+}

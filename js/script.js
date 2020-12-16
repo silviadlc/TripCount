@@ -12,3 +12,9 @@ function selectRedirectOrderInput(valueOrder) {
 			break;
 	}
 }
+
+function showFormCustom(elementFormById) {
+	let elementForm = document.getElementById(elementFormById);
+	elementForm.style.display = 'block';
+	window.location.href = '#' + elementForm.id;
+}
