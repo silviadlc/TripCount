@@ -1,3 +1,20 @@
 .travels table {
 	margin-top: 20px;
 }
+
+#controlsTravel {
+	display: flex;
+	justify-content: space-between;
+}
+
+button.add {
+	background: green;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#controlsTravel:last-of-type {
+	margin-top: 10px;
+}
