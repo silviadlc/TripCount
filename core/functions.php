@@ -32,8 +32,9 @@
 		 */
 		$config = array(
 			'/login.php' => '../css/login.css',
-			'/home.php' => '../css/home.css'
-		);
+			'/home.php' => '../css/home.css',
+			'/index.php' => '../css/landing.css'
+			);
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
 	}

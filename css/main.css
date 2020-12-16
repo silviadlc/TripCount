@@ -11,11 +11,39 @@
 	--DBlueM: #01068C;
 }
 
-body {
+html,body {
+	margin:0px;
+	height:100%;
 	font-family: "Londrina Solid";
-	background-image: url(../media/background_body.png);
-	background-size: cover;
-  }
+  	background-image: url(../media/background_body.png);
+ 	background-size: cover;
+}
+
+.header{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	border-radius: 4px;
+	background-color: var(--DBlueM);
+	border: 1px solid var(--DBlueM);
+	color:var(--MYellowT);
+	padding: 1%;
+	text-decoration: none;
+	overflow: hidden;
+	height: 11%;
+
+}
+
+.house{
+ height:30px;
+ width:30px;
+ color: var(--GBlueT);
+}
+
+a:link{
+	text-decoration: none;
+}
 
 .logo {
 	text-align: center;
@@ -138,4 +166,19 @@ body {
 
 .warning .alert-content .alert-title {
 	color: #d8d172;
+}
+
+.footer{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 4px;
+	background-color: var(--MOrangeM);
+	border: 1px solid var(--MOrangeM);
+	color:var(--BGreyT);
+	text-decoration: none;
+	overflow: hidden;
+	height: 11%;
+	padding: 1%;
+
 }

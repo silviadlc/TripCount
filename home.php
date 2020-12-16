@@ -1,5 +1,4 @@
 <?php include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php' ?>
-
 <div id="content">
 	<h1 class="content-title">Home</h1>
 	<!-- alert-content -->
@@ -42,3 +41,4 @@
 		</table>
 	</div>
 </div>
+<?php include $_SERVER["DOCUMENT_ROOT"].'/includes/footer.php' ?>

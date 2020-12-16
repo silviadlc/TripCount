@@ -1,22 +1,31 @@
-<?php session_start()
-if (isset($_POST["user"])){
-        $_SESSION["user"] = $_POST["user"];
-
+<?php session_start();	
+	if(isset($_SESSION["userLogged"])){
+		$user= $_SESSION["userLogged"];
+} else{
+	$user="sin usuario";
+}
  ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  	<script src="https://kit.fontawesome.com/74ec47558a.js" crossorigin="anonymous"></script>
-</head>
-<body>
-	<link rel="stylesheet" type="text/css" href="../css/colors.css">
-	<link rel="stylesheet" type="text/css" href="../css/header.css">
-<div class="header">
-	<div><?php echo"$_SESSION['user']"; ?></div>
-	<div><a href="./home.php" class="home"><span style="font-size: 40px; color:white;">
-  <i class="fas fa-home"></i>
-</span></a></div>
-</div>
+	<head>
+		<title></title>
+		<meta charset="utf8">
+        <?php require $_SERVER["DOCUMENT_ROOT"].'/core/functions.php'; ?>
+        <title><?php echo getTitleDocument(); ?> Tripcount</title>
+        <?php notAllowedToEnterIfNotLogged(); ?>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="<?php echo getCSSdependingUrl(); ?>">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&family=Patrick+Hand&display=swap" rel="stylesheet"> 
+        <script src="/js/script.js" defer></script>
+	  	<script src="https://kit.fontawesome.com/74ec47558a.js" crossorigin="anonymous"></script>
+	</head>
+	<header>
+	<div class="header">
+		<div><?php echo "$user"; ?></div>
+		<div><a href="./home.php" class="home"><span style="font-size: 40px; color:white;">
+	  <i class="fas fa-home"></i>
+	</span></a></div>
+	</header>
+	<body>
