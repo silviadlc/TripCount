@@ -51,7 +51,7 @@
         <form action="#" method="POST">
             <h1>INICIAR SESIÓN</h1>
             <label for="userEmail"><b>Correo electrónico</b></label><br>
-            <input type="email" placeholder="Introduce email" name="userEmail"><br><br>
+            <input type="email" placeholder="Introduce correo electrónico" name="userEmail"><br><br>
             <label for="password"><b>Contraseña</b></label><br>
             <input type="password" placeholder="Introduce contraseña" id="password" name="password"><br><br>
             <button type="submit" name="sendLogin">Entrar</button>                

@@ -3,15 +3,8 @@
 	session_start();
 
 	// TODO: Sistema local para el usuario que haya iniciado sesión
-	if(isset($_POST["userEmail"])){
-		global $user;
-		$_SESSION["usermail"] = $_POST["userEmail"];
-		$user= $_SESSION["usermail"];
+	$usernameLogged = 1; // ID del usuario local.
 		
-	} 
-
-
-
 	// Si la variable global de SESSION['alerts'] no esta asignada, se le asigna.
 	if(!isset($_SESSION['alerts'])) {
 		$_SESSION['alerts'] = array();
@@ -24,7 +17,7 @@
 		$config = array(
 			'/login.php' => 'Iniciar sesión - ',
 			'/home.php' => 'Home - ',
-			'/index.php' => ''
+			'/invitations.php' => 'Invitaciones -'
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -41,8 +34,8 @@
 		$config = array(
 			'/login.php' => '../css/login.css',
 			'/home.php' => '../css/home.css',
-			'/index.php' => '../css/landing.css'
-			);
+			'/invitations.php' => '../css/invitations.css'
+		);
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
 	}
@@ -79,27 +72,25 @@
 		global $conn, $usernameLogged;
 		switch ($orderBy) {
 			case 1:
-				$orderBy = 'ORDER BY travels.idTravel DESC';
+				$sql = $conn->query("SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = $usernameLogged ORDER BY travels.created DESC");
 				break;
 
 			case 2:
-				$orderBy = 'ORDER BY travels.updated DESC';
+				$sql = $conn->query("SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = $usernameLogged ORDER BY travels.updated DESC");
 				break;
 			
 			default:
-				die('Debes de seguir los values estipulados del select.');
+				die('Debes de seguir los valores estipulados del select.');
 				break;
 		}
 		
-		
-		$sql = $conn->query("SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = $usernameLogged $orderBy");
 		while ($row = $sql->fetch()) {
 			echo '
 			<tr>
 				<td>'.$row['idTravel'].'</td>
 				<td>'.$row['name'].'</td>
 				<td>'.$row['description'].'</td>
-				<td>'.$row['currency'].'</td>
+				<td>'.getNameCurrency($row['currency']).'</td>
 			</tr>';
 		}
 
@@ -118,7 +109,7 @@
 		}
 	}
 
-	function showAlert($type, $message, $manyErrors = '') {
+	function showAlert($type, $message, $manyErrors = array()) {
         if ($type == 'info'){
 			echo '
 		<div class="alert info">
@@ -171,4 +162,25 @@
 			</div>
 		</div>';
         }
-    }
+	}
+	
+	function getNameCurrency($currencyCode) {
+		global $conn;
+		$sql = $conn->query('SELECT name FROM currency WHERE code = "'.$currencyCode.'"');
+		if($sql->rowCount() != 0) {
+			$row = $sql->fetch();
+			return $row['name'];
+		} else {
+			return false;
+		}
+	}
+
+	function showCurrencyAsOptions() {
+		global $conn;
+		$sql = $conn->query('SELECT * FROM currency');
+		while ($row = $sql->fetch()) {
+			echo '<option value="'.$row['code'].'">'.$row['name'].' ('.$row['code'].')</option>';
+		}
+	}
+
+	//function 
