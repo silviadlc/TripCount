@@ -14,38 +14,35 @@ body {
   border-radius: 10px;
   background-color: var(--BGreyT);
   box-shadow: 2px 2px 5px var(--GBlueM);
-}
-
-.box-btn {
   text-align: center;
 }
+
 h1 {
   text-align: center;
   color: var(--DBlueM);
+  margin-bottom: 10px;
 }
 label {
   color: var(--DBlueM);
 }
 
-li {
-  justify-content: space-between;
-}
-
-input[type="email"],
-input[type="password"] {
+input {
   width: 30%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 5px 0;
   border: 1px solid var(--BGreyT);
   box-sizing: border-box;
   border-radius: 10px;
 }
 .newEmail {
-  margin: 0 5px;
+  margin: 5px 0;
   padding: 12px 20px;
   background-color: var(--SOrangeM);
   border-radius: 10px;
   border: none;
+}
+#btn {
+  text-align: center;
 }
 
 .submit {
