@@ -18,8 +18,7 @@ function addInput() {
 	let input = document.createElement("input");         
 	input.type = 'email';
 	input.placeholder = "Introduce correo electrónico";
-	let newline = document.createElement('br');
+	let newline = document.createElement("br");
 	form.appendChild(newline);
 	form.appendChild(input);
 }
-window.onload = addInput()
