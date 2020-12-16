@@ -1,0 +1,68 @@
+body {
+  font-family: "Londrina Solid";
+  background-image: url(../media/background_body.png);
+  background-size: cover;
+}
+.logo {
+  text-align: center;
+}
+.form {
+  border: 2px solid var(--BGreyT);
+  width: 60%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--BGreyT);
+  box-shadow: 2px 2px 5px var(--GBlueM);
+}
+
+.box-btn {
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  color: var(--DBlueM);
+}
+label {
+  color: var(--DBlueM);
+}
+
+li {
+  justify-content: space-between;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid var(--BGreyT);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.newEmail {
+  margin: 0 5px;
+  padding: 12px 20px;
+  background-color: var(--SOrangeM);
+  border-radius: 10px;
+  border: none;
+}
+
+.submit {
+  background-color: var(--SOrangeM);
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  border-radius: 10px;
+}
+#fa-plus {
+  color: var(--DBlueM);
+  font-size: 20px;
+}
+
+button:hover {
+  opacity: 0.8;
+}

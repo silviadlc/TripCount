@@ -12,3 +12,10 @@ function selectRedirectOrderInput(valueOrder) {
 			break;
 	}
 }
+
+function addInput() {
+	console.log(document.getElementsByClassName('emailList'));
+	console.log(document.getElementsByTagName('li'));
+	
+}
+window.onload = addInput();
