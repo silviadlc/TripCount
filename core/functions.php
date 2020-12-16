@@ -7,10 +7,10 @@
 		global $user;
 		$_SESSION["usermail"] = $_POST["userEmail"];
 		$user= $_SESSION["usermail"];
-		$usernameLogged=$_SESSION['userLogged'];
+		echo $_SESSION['userLogged'];
 	} 
 
-	
+
 
 	// Si la variable global de SESSION['alerts'] no esta asignada, se le asigna.
 	if(!isset($_SESSION['alerts'])) {
