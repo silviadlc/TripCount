@@ -1,10 +1,3 @@
-<?php session_start();	
-	if(isset($_SESSION["userLogged"])){
-		$user= $_SESSION["userLogged"];
-} else{
-	$user="sin usuario";
-}
- ?>
 <!DOCTYPE html>
 <html>
 	<head>

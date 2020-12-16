@@ -1,4 +1,4 @@
-	<?php	
+	<?php	include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php';
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sendLogin'])) {
 			$data['userEmail'] = filter_var($_POST['userEmail'], FILTER_SANITIZE_EMAIL, FILTER_SANITIZE_STRING);
 			$data['password'] = filter_var($_POST['password'], FILTER_SANITIZE_STRING);

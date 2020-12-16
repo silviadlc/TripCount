@@ -2,9 +2,16 @@
 	require $_SERVER["DOCUMENT_ROOT"].'/core/connection.php';
 	session_start();
 
+
+
+
 	// TODO: Sistema local para el usuario que haya iniciado sesión
-	$usernameLogged = 2; // ID del usuario local.
-		
+	if(isset($_SESSION["userLogged"])){
+		$user= $_SESSION["userLogged"];
+	} else{
+		$user="sin usuario";
+	}		
+	
 	// Si la variable global de SESSION['alerts'] no esta asignada, se le asigna.
 	if(!isset($_SESSION['alerts'])) {
 		$_SESSION['alerts'] = array();
