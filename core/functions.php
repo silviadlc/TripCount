@@ -4,10 +4,10 @@
 
 	// TODO: Sistema local para el usuario que haya iniciado sesión
 	if(isset($_POST["userEmail"])){
-		
+		global $user;
 		$_SESSION["user"] = $_POST["userEmail"];
 		$user= $_SESSION["user"];
-		global $user;
+		
 	} 
 
 	// Si la variable global de SESSION['alerts'] no esta asignada, se le asigna.
