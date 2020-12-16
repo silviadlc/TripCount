@@ -3,7 +3,11 @@
 	session_start();
 
 	// TODO: Sistema local para el usuario que haya iniciado sesión
-	$usernameLogged = 1; // ID del usuario local.
+	if(isset($_POST["userEmail"])){
+		global $user;
+		$_SESSION["usermail"] = $_POST["userEmail"];
+		$user= $_SESSION["usermail"];
+	}
 		
 	// Si la variable global de SESSION['alerts'] no esta asignada, se le asigna.
 	if(!isset($_SESSION['alerts'])) {
@@ -17,7 +21,8 @@
 		$config = array(
 			'/login.php' => 'Iniciar sesión - ',
 			'/home.php' => 'Home - ',
-			'/invitations.php' => 'Invitaciones -'
+			'/invitations.php' => 'Invitaciones -',
+			'/index.php' => ''
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -34,7 +39,8 @@
 		$config = array(
 			'/login.php' => '../css/login.css',
 			'/home.php' => '../css/home.css',
-			'/invitations.php' => '../css/invitations.css'
+			'/invitations.php' => '../css/invitations.css',
+			'/index.php' => '../css/landing.css'
 		);
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
