@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title><?php getTitleDocument() ?></title>
 		<meta charset="utf8">
         <?php require $_SERVER["DOCUMENT_ROOT"].'/core/functions.php'; ?>
         <title><?php echo getTitleDocument(); ?> Tripcount</title>

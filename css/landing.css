@@ -23,7 +23,7 @@ Deep Blue: #01068C; (main menus)
 }
 */
 html,body {
-	margin:1px;
+	margin:0px;
 	height:100%;
 	font-family: "Londrina Solid";
   	background-image: url(media/background_body.png);

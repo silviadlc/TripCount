@@ -2,12 +2,9 @@
 	require $_SERVER["DOCUMENT_ROOT"].'/core/connection.php';
 	session_start();
 
-
-
-
 	// TODO: Sistema local para el usuario que haya iniciado sesión
 	if(isset($_POST["userEmail"])){
-		 $_SESSION["user"] = $_POST["userEmail"]
+		 $_SESSION["user"] = $_POST["userEmail"];
 		$user= $_SESSION["user"];
 	} else{
 		$user="sin usuario";
