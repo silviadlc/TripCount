@@ -7,7 +7,7 @@
 		global $user;
 		$_SESSION["usermail"] = $_POST["userEmail"];
 		$user= $_SESSION["usermail"];
-		echo $_SESSION['userLogged'];
+		
 	} 
 
 
@@ -23,7 +23,8 @@
 		 */
 		$config = array(
 			'/login.php' => 'Iniciar sesión - ',
-			'/home.php' => 'Home - '
+			'/home.php' => 'Home - ',
+			'/index.php' => ''
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
