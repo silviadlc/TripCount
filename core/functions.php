@@ -10,7 +10,7 @@
 		
 	} 
 
-	$usernameLogged=$idUsername;
+	$usernameLogged=$_SESSION['userLogged'];
 
 	// Si la variable global de SESSION['alerts'] no esta asignada, se le asigna.
 	if(!isset($_SESSION['alerts'])) {
