@@ -41,10 +41,10 @@
 				$sql->bindParam(4, $data['travelCurrency']);
 				$sql->execute();
 
-				$sql2 = $conn->query('INSERT INTO travels_users SET idUsername = $usernameLogged, idTravel = '.$conn->lastInsertId().'');
+				$sql2 = $conn->query('INSERT INTO travels_users SET idUsername = '.$usernameLogged.', idTravel = "'.$conn->lastInsertId().'"');
 
-				if($sql) {
-					//echo '<meta http-equiv="refresh" content="0; url=">';
+				if($sql && $sql2) {
+					echo '<meta http-equiv="refresh" content="0; url=">';
 					exit;
 				}
 			}
@@ -128,5 +128,4 @@
 			<input type="reset" value="Restablecer"/>
 		</fieldset>
 	</form>
-
 </div>
