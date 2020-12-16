@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo"getTitleDocument()" ?></title>
+		<?php require $_SERVER["DOCUMENT_ROOT"].'/core/functions.php'; ?>
+		<title><?php echo getTitleDocument(); ?></title>
 		<meta charset="utf8">
-        <?php require $_SERVER["DOCUMENT_ROOT"].'/core/functions.php'; ?>
+        
         <title><?php echo getTitleDocument(); ?> Tripcount</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/main.css">
