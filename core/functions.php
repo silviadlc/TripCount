@@ -16,7 +16,8 @@
 		 */
 		$config = array(
 			'/login.php' => 'Iniciar sesión - ',
-			'/home.php' => 'Home - '
+			'/home.php' => 'Home - ',
+			'/invitations.php' => 'Invitaciones -'
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -32,7 +33,8 @@
 		 */
 		$config = array(
 			'/login.php' => '../css/login.css',
-			'/home.php' => '../css/home.css'
+			'/home.php' => '../css/home.css',
+			'/invitations.php' => '../css/invitations.css'
 		);
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
