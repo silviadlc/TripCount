@@ -1,8 +1,7 @@
+<?php require $_SERVER["DOCUMENT_ROOT"].'/core/functions.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php require $_SERVER["DOCUMENT_ROOT"].'/core/functions.php'; ?>
-		<title><?php echo getTitleDocument(); ?></title>
 		<meta charset="utf8">
         <title><?php echo getTitleDocument(); ?> Tripcount</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
