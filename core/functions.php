@@ -85,11 +85,11 @@
 		global $conn, $localUser;
 		switch ($orderBy) {
 			case 1:
-				$sql = $conn->query('SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = "'.$localUser['idUsername'].'" ORDER BY travels.created DESC');
+				$travelsToShow = $conn->query('SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = "'.$localUser['idUsername'].'" ORDER BY travels.idTravel DESC');
 				break;
 
 			case 2:
-				$sql = $conn->query('SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = "'.$localUser['idUsername'].'" ORDER BY travels.updated DESC');
+				$travelsToShow = $conn->query('SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = "'.$localUser['idUsername'].'" ORDER BY travels.updated DESC');
 				break;
 			
 			default:
@@ -97,7 +97,7 @@
 				break;
 		}
 		
-		while ($row = $sql->fetch()) {
+		while ($row = $travelsToShow->fetch()) {
 			echo '
 			<tr>
 				<td>'.$row['idTravel'].'</td>

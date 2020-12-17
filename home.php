@@ -88,7 +88,7 @@
 				<td>Moneda asignada al viaje</td>
 			</tr>
 			<?php
-				if(!isset($_GET['order']) || !empty($_GET['order'])) {
+				if(!isset($_GET['order'])) {
 					showTravels();
 				} else {
 					showTravels($_GET['order']);
