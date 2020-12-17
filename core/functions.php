@@ -60,7 +60,8 @@
 		$config = array(
 			'/home.php' => '1',
 			'/login.php' => '0',
-			'/completeInvitation.php' => '1'
+			'/completeInvitation.php' => '1',
+			'/index.php' => '1'
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
