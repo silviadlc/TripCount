@@ -3,6 +3,11 @@
 	session_start();
 
 	// TODO: Sistema local para el usuario que haya iniciado sesión
+	if(isset($_SESSION['userLogged']) && !empty($_SESSION['userLogged'])) {
+		$sql = $conn->query('SELECT * FROM users WHERE idUsername = "'.$_SESSION['userLogged'].'"');
+		$localUser = $sql->fetch();
+	}
+
 	$usernameLogged = 1; // ID del usuario local.
 		
 	// Si la variable global de SESSION['alerts'] no esta asignada, se le asigna.
@@ -48,7 +53,8 @@
 		 */
 		$config = array(
 			'/home.php' => '1',
-			'/login.php' => '0'
+			'/login.php' => '0',
+			'/completeInvitation.php' => '1'
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -183,4 +189,68 @@
 		}
 	}
 
-	//function 
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\SMTP;
+	function send_email($to, $subject, $body) {
+		//Import the PHPMailer class into the global namespace
+
+		//SMTP needs accurate times, and the PHP time zone MUST be set
+		//This should be done in your php.ini, but this is how to do it if you don't have access to that
+		date_default_timezone_set('Etc/UTC');
+
+		//Create a new PHPMailer instance
+		require_once $_SERVER['DOCUMENT_ROOT'].'/PHPMailer/src/Exception.php';
+		require_once $_SERVER['DOCUMENT_ROOT'].'/PHPMailer/src/PHPMailer.php';
+		require_once $_SERVER['DOCUMENT_ROOT'].'/PHPMailer/src/SMTP.php';
+		$mail = new PHPMailer();
+		//Tell PHPMailer to use SMTP
+		$mail->isSMTP();
+		//Enable SMTP debugging
+		// SMTP::DEBUG_OFF = off (for production use)
+		// SMTP::DEBUG_CLIENT = client messages
+		// SMTP::DEBUG_SERVER = client and server messages
+		$mail->SMTPDebug = SMTP::DEBUG_OFF;
+		//Set the hostname of the mail server
+		$mail->Host = 'smtp.gmail.com';
+		//Set the SMTP port number - likely to be 25, 465 or 587
+		$mail->Port = 587;
+		//Whether to use SMTP authentication
+		$mail->SMTPAuth = true;
+		//Username to use for SMTP authentication
+		$mail->Username = 'tricuentapp@gmail.com';
+		//Password to use for SMTP authentication
+		$mail->Password = "ZC0lGsZX!JE1gpD!zjcd2HZR*L!a%";
+		//Set who the message is to be sent from
+		$mail->setFrom('no-reply@tripcount.com', 'TripCount');
+		//Set who the message is to be sent to
+		$mail->addAddress($to);
+		//Set the subject line
+		$mail->Subject = $subject;
+		$mail->Body = '
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+		<html lang="es">
+			<head>
+				<meta charset="utf-8">
+			</head>
+			<body>
+				<img src="https://i.imgur.com/BW5u54f.png" />
+				'.$body.'
+			</body>
+		</html>';
+		$mail->IsHTML(true);
+		$mail->CharSet = 'UTF-8';
+		//Read an HTML message body from an external file, convert referenced images to embedded,
+		//convert HTML into a basic plain-text alternative body
+		//$mail->msgHTML(file_get_contents('contents.html'), __DIR__);
+		//Replace the plain text body with one created manually
+		//$mail->AltBody = 'This is a plain-text message body';
+		//Attach an image file
+		//$mail->addAttachment('images/phpmailer_mini.png');
+
+		//send the message, check for errors
+		if (!$mail->send()) {
+			return false;
+		} else {
+			return true;
+		}
+	}

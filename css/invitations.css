@@ -63,3 +63,7 @@ input {
 button:hover {
   opacity: 0.8;
 }
+
+input[type="email"] {
+	display: block;
+}

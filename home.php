@@ -35,16 +35,18 @@
 					created = NOW(),
 					updated = NOW()
 				');
-				$sql->bindParam(1, $usernameLogged);
+				$sql->bindParam(1, $localUser['idUsername']);
 				$sql->bindParam(2, $data['travelName']);
 				$sql->bindParam(3, $data['travelDescription']);
 				$sql->bindParam(4, $data['travelCurrency']);
 				$sql->execute();
 
-				$sql2 = $conn->query('INSERT INTO travels_users SET idUsername = '.$usernameLogged.', idTravel = "'.$conn->lastInsertId().'"');
+				$lastIdForTravel = $conn->lastInsertId();
+
+				$sql2 = $conn->query('INSERT INTO travels_users SET idUsername = '.$localUser['idUsername'].', idTravel = "'.$lastIdForTravel.'"');
 
 				if($sql && $sql2) {
-					echo '<meta http-equiv="refresh" content="0; url=">';
+					header('Location: /invitations.php?idTravel='.$lastIdForTravel);
 					exit;
 				}
 			}
