@@ -3,7 +3,8 @@
 <html>
 	<head>
 		<meta charset="utf8">
-        <title><?php echo getTitleDocument(); ?> Tripcount</title>
+		<title><?php echo getTitleDocument(); ?> Tripcount</title>
+		<?php notAllowedToEnterIfNotLogged(); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="<?php echo getCSSdependingUrl(); ?>">
@@ -14,8 +15,8 @@
 	</head>
 	<header>
 	<div class="header">
-		<div><?php if(isset($user)){
-			echo "$user";
+		<div><?php if(isset($_SESSION['userLogged'])){
+			echo getUsernameById($localUser['idUsername']);
 		} ?>
 		</div>
 		<div><a href="./home.php" class="home"><span style="font-size: 40px; color:white;">

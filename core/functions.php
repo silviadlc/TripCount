@@ -12,6 +12,13 @@
 		$_SESSION['alerts'] = array();
 	}
 
+	function getUsernameById($id) {
+		global $conn;
+		$sql = $conn->query('SELECT name FROM users WHERE idUsername = "'.$id.'"');
+		$userLocal = $sql->fetch();
+		return $userLocal['name'];
+	}
+
 	function getTitleDocument() {
 		/**
 		 * Esta función lo que realizará es obtener el título y evitar se tenga que realizar siempre un TITLE.
@@ -20,7 +27,7 @@
 			'/login.php' => 'Iniciar sesión - ',
 			'/home.php' => 'Home - ',
 			'/invitations.php' => 'Invitaciones -',
-			'/index.php' => 'Bienvenido! - '
+			'/index.php' => '¡Bienvenido! - '
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -74,14 +81,14 @@
 	}
 
 	function showTravels($orderBy = 1) {
-		global $conn, $usernameLogged;
+		global $conn, $localUser;
 		switch ($orderBy) {
 			case 1:
-				$sql = $conn->query("SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = $usernameLogged ORDER BY travels.created DESC");
+				$sql = $conn->query('SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = "'.$localUser['idUsername'].'" ORDER BY travels.created DESC');
 				break;
 
 			case 2:
-				$sql = $conn->query("SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = $usernameLogged ORDER BY travels.updated DESC");
+				$sql = $conn->query('SELECT travels.* FROM travels LEFT JOIN travels_users ON travels.idTravel = travels_users.idTravel WHERE travels_users.idUsername = "'.$localUser['idUsername'].'" ORDER BY travels.updated DESC');
 				break;
 			
 			default:
