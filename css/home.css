@@ -1,40 +1,40 @@
 .travels table {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 #controlsTravel {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 button.add {
-	background: green;
-	border-radius: 5px;
-	color: white;
-	font-weight: bold;
-	cursor: pointer;
+  background: var(--MOrangeM);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 #controlsTravel:last-of-type {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 form#createTravel {
-	margin: 20px 0px 20px 0px;
+  margin: 20px 0px 20px 0px;
 }
 
-form#createTravel fieldset label{
-	display: block;
-	width: 100%;
-	margin: 10px;
+form#createTravel fieldset label {
+  display: block;
+  width: 100%;
+  margin: 10px;
 }
 
 form#createTravel fieldset #travelDescription {
-	width: 90%;
-	box-sizing: border-box;
-	resize: vertical;
+  width: 90%;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
 form#createTravel {
-	display: none;
+  display: none;
 }

@@ -1,0 +1,113 @@
+/*Colours:
+
+Main Orange: #CB5A04; (main menus)
+Soft Orange: #D59A34; (submenus)
+Medium Yellow: #DEDA64; (writting)
+Basic Grey: #DEDEDE; (writting)
+Grey blue: #393B82; (submenus)
+Deep Blue: #01068C; (main menus)
+*/
+
+/*
+.Header {
+	margin: auto;
+	padding:auto;
+	overflow: visible;
+	width: 100%;
+	height: auto;
+	border: 1px solid red;
+ 	border-radius: 10px;
+	background-color: red;
+
+}
+*/
+/* html,
+body {
+  margin: 0px;
+  height: 100%;
+  font-family: "Londrina Solid";
+  background-image: url(media/background_body.png);
+  background-size: cover;
+} */
+
+.Errors {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.landingButtons {
+  padding: 0, 5%;
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--MOrangeM);
+  border: 2px solid var(--BGreyT);
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px var(--GBlueM);
+}
+
+.inputButton {
+  background-color: var(--SOrangeM);
+  border-color: var(--MOrangeM);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  height: 30px;
+  width: 65px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.SubWelcome {
+  display: flex;
+  width: 97%;
+  height: 30%;
+  border: 1px solid var(--GBlueM);
+  background-color: var(--GBlueM);
+  border-radius: 10px;
+  justify-content: center;
+  position: flex-start;
+}
+
+.Welcome {
+  display: flex;
+  flex-wrap: wrap;
+  position: center;
+  margin: 0 auto;
+  margin-top: 5%;
+  width: 60%;
+  height: 70%;
+  border: 1px solid var(--BGreyT);
+  background-color: var(--DBlueM);
+  border-radius: 10px;
+  justify-content: center;
+  box-shadow: 2px 2px 10px var(--GBlueM);
+}
+/*
+.WelcomeTDiv{
+	border: 2px solid var(--MYellowT);
+ 	border-radius: 10px;
+ 	box-shadow: 2px 2px 10px var(--GBlueM);
+ 	padding: 1%;
+ 	padding-top: 1%;
+ 	margin-top: 0,5%;
+ 	
+}*/
+
+.SubWelcomeText {
+  color: var(--BGreyT);
+  font-size: 24px;
+  margin: 5%;
+}
+
+.WelcomeText {
+  color: var(--MYellowT);
+  font-size: 40px;
+  margin-top: 5%;
+}

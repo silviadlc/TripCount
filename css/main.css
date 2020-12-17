@@ -1,141 +1,184 @@
 * {
-	margin: 0;
+  margin: 0;
 }
 
 :root {
-	--MOrangeM: #CB5A04;
-	--SOrangeM: #D59A34;
-	--MYellowT: #DEDA64;
-	--BGreyT: #DEDEDE;
-	--GBlueM: #393B82;
-	--DBlueM: #01068C;
+  --MOrangeM: #cb5a04;
+  --SOrangeM: #d59a34;
+  --MYellowT: #deda64;
+  --BGreyT: #dedede;
+  --GBlueM: #393b82;
+  --DBlueM: #01068c;
 }
 
+html,
 body {
-	font-family: "Londrina Solid";
-	background-image: url(../media/background_body.png);
-	background-size: cover;
-  }
+  margin: 0px;
+  height: 100%;
+  font-family: "Londrina Solid";
+  background-image: url(../media/background_body.png);
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 4px;
+  background-color: var(--DBlueM);
+  border: 1px solid var(--DBlueM);
+  color: var(--MYellowT);
+  padding: 1%;
+  text-decoration: none;
+  overflow: hidden;
+  height: 11%;
+}
+
+.house {
+  height: 30px;
+  width: 30px;
+  color: var(--GBlueT);
+}
+
+a:link {
+  text-decoration: none;
+}
 
 .logo {
-	text-align: center;
+  text-align: center;
 }
 
 #content {
-	margin: 0 auto;
-	width: 70%;
+  margin: 0 auto;
+  width: 70%;
 }
 
 .content-title {
-	font-weight: normal;
-	text-align: center;
-	margin-bottom: 20px;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .alert {
-	margin: 5px 0px 15px 0px;
-	border-radius: 10px;
-	overflow: hidden;
-	display: flex;
-	transition: max-height 3s ease-out;
+  margin: 5px 0px 15px 0px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  transition: max-height 3s ease-out;
 }
 
 .alert .icon {
-	width: 80px;
-	position: relative;
-	z-index: 999;
-	background-repeat: no-repeat;
-	background-position: center 16px;
-	background-size: 30px;
-	display: block;
-	color: white;
-	font-size: 22px;
-	line-height: 20px;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  width: 80px;
+  position: relative;
+  z-index: 999;
+  background-repeat: no-repeat;
+  background-position: center 16px;
+  background-size: 30px;
+  display: block;
+  color: white;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon #close {
-	width: 17px;
-	height: 17px;
-	text-align: center;
-	border: 3px solid white;
-	padding: 5px 5px;
-	border-radius: 100%;
-	font-weight: 900;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  border: 3px solid white;
+  padding: 5px 5px;
+  border-radius: 100%;
+  font-weight: 900;
 }
 
 .alert.danger {
-	background: #fff5f4;
-	border: 1px solid #f68b8b;
+  background: #fff5f4;
+  border: 1px solid #f68b8b;
 }
 
 .danger > .icon {
-	background-color: #f68b8b;
+  background-color: #f68b8b;
 }
 
 .alert.success {
-	background: #f1f9f0;
-	border: 1px solid #7fbb7c;
+  background: #f1f9f0;
+  border: 1px solid #7fbb7c;
 }
 
 .success > .icon {
-	background-color: #7fbb7c;
+  background-color: #7fbb7c;
 }
 
 .alert.info {
-	background: #f0f7f9;
-	border: 1px solid #2196f3;
+  background: #f0f7f9;
+  border: 1px solid #2196f3;
 }
 
 .info > .icon {
-	background-color: #2196f3;
+  background-color: #2196f3;
 }
 
 .alert.warning {
-	background: #fffef0;
-	border: 1px solid #d8d172;
+  background: #fffef0;
+  border: 1px solid #d8d172;
 }
 
 .warning > .icon {
-	background-color: #d8d172;
+  background-color: #d8d172;
 }
 
 .alert-content {
-	padding: 20px;
+  padding: 20px;
 }
 
 .alert-content p {
-	margin: 0;
-	font-size: 16px;
+  margin: 0;
+  font-size: 16px;
 }
 
 .alert-content ul {
-	margin: 10px 0px 0px 0px;
-	font-size: 16px;
+  margin: 10px 0px 0px 0px;
+  font-size: 16px;
 }
 
 .alert-content h2 {
-	margin: 0;
- 	margin-bottom: 5px;
-  	font-size: 18px;
-  	padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+  padding: 0;
 }
 
 .danger .alert-content .alert-title {
-	color: #f68b8b;
+  color: #f68b8b;
 }
 
 .success .alert-content .alert-title {
-	color: #7fbb7c;
+  color: #7fbb7c;
 }
 
 .info .alert-content .alert-title {
-	color: #2196f3;
+  color: #2196f3;
 }
 
 .warning .alert-content .alert-title {
-	color: #d8d172;
+  color: #d8d172;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  background-color: var(--MOrangeM);
+  border: 1px solid var(--MOrangeM);
+  color: var(--BGreyT);
+  text-decoration: none;
+  overflow: hidden;
+  height: 11%;
+  padding: 1%;
+  margin-top: 370px;
 }
