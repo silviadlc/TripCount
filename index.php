@@ -31,10 +31,10 @@
 				</div>
 				<div class="access">
 					<form method="POST" action="login.php">
-						<input type="submit" name="login" value="Login" class="inputButton">
+						<button type="submit" name="login" class="inputButton" accesskey="l"><underline class="accesskey">L</underline>ogin</button>
 					</form>
 					<form method="POST" action="core/register.php">
-						<input type="submit" name="register" value="Register" class="inputButton">
+						<button type="submit" name="register" class="inputButton" accesskey="r"><underline class="accesskey">R</underline>egister</button>
 					</form>
 				</div>
 			</div>

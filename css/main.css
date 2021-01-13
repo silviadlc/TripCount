@@ -20,6 +20,10 @@ body {
   background-size: cover;
 }
 
+underline {
+  text-decoration: underline;
+}
+
 .header {
   display: flex;
   flex-direction: row;

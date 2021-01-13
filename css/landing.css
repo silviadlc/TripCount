@@ -46,7 +46,7 @@ img {
   font-weight: bold;
 }
 
-button:hover {
+.inputButton:hover {
   opacity: 0.8;
 }
 
@@ -87,4 +87,84 @@ button:hover {
   color: var(--MYellowT);
   font-size: 50px;
   margin-top: 10%;
+}
+
+@media (max-width: 1840px) {
+  .logo {
+    position: absolute;
+    width: 100%;
+    top: 3%;
+  }
+}
+
+@media (max-width: 1640px) {
+  img {
+    width: 170px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 1500px) {
+  img {
+    width: 170px;
+    height: 80px;
+  }
+  .landingButtons {
+    width: 23%;
+    height: 23%;
+  }
+  .SubWelcomeText {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .landingButtons {
+    width: 25%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .landingButtons {
+    width: 28%;
+  }
+  .SubWelcomeText {
+    font-size: 20px;
+  }
+  .WelcomeText {
+    font-size: 45px;
+  }
+  .SubWelcome {
+    height: 27%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .landingButtons {
+    width: 30%;
+  }
+}
+
+@media (max-width: 1000px) {
+  img {
+    width: 150px;
+    height: 65px;
+  }
+  .SubWelcomeText {
+    font-size: 17px;
+  }
+  .WelcomeText {
+    font-size: 40px;
+  }
+  .inputButton {
+    height: 25px;
+    width: 80px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 900px) {
+  .landingButtons {
+    width: 33%;
+  }
 }
