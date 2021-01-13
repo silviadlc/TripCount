@@ -4,16 +4,32 @@ body {
 
 .travels {
   border: 2px solid var(--BGreyT);
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   padding: 16px;
   border-radius: 10px;
   background-color: var(--BGreyT);
   box-shadow: 2px 2px 5px var(--GBlueM);
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .travels table {
   margin-top: 20px;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.travels td {
+  padding: 10px 15px;
+}
+
+.travels tr:nth-of-type(even) {
+  background-color: var(--WhiteT);
 }
 
 #controlsTravel {
@@ -30,12 +46,22 @@ button.add {
   font-size: 15px;
 }
 
+button.add:hover {
+  opacity: 0.8;
+}
+
 #controlsTravel:last-of-type {
   margin-top: 10px;
 }
 
 form#createTravel {
-  margin: 20px 0px 20px 0px;
+  border: 2px solid var(--BGreyT);
+  width: 80%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--BGreyT);
+  box-shadow: 2px 2px 5px var(--GBlueM);
 }
 
 form#createTravel fieldset label {
@@ -52,4 +78,44 @@ form#createTravel fieldset #travelDescription {
 
 form#createTravel {
   display: none;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid var(--BGreyT);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+select {
+  font-size: 14px;
+  border-radius: 4px;
+  width: 65%;
+  height: 95%;
+}
+
+select#travelCurrency {
+  font-size: 14px;
+  border-radius: 4px;
+  height: 95%;
+}
+
+button[type="submit"] {
+  background-color: var(--SOrangeM);
+  color: black;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.8;
 }

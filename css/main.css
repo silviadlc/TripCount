@@ -9,6 +9,7 @@
   --BGreyT: #dedede;
   --GBlueM: #393b82;
   --DBlueM: #01068c;
+  --WhiteT: #eeeeee;
 }
 
 html,
@@ -184,9 +185,9 @@ a:link {
   color: var(--BGreyT);
   text-decoration: none;
   overflow: hidden;
-  height: 11%;
   padding: 1%;
-  margin-top: 370px;
+  margin-top: 115px;
+  clear: both;
 }
 
 @media (max-width: 900px) {

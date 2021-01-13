@@ -78,7 +78,7 @@
 					</select>
 				</label>
 			</form>
-			<button class="add" onclick="showFormCustom('createTravel');">+</button>
+			<button class="add" onclick="showFormCustom('createTravel');" accesskey="+">+</button>
 		</div>
 		<table border="1" width="100%">
 			<tr>
@@ -107,7 +107,7 @@
 			<button class="add" onclick="showFormCustom('createTravel');">+</button>
 		</div>
 	</div>
-
+	<br><br>				
 	<form id="createTravel" method="POST" action="#" autocomplete="off">
 		<fieldset>
 			<legend>Crear un nuevo viaje</legend>
@@ -128,8 +128,8 @@
 					?>
 				</select>
 			</label>
-			<input type="submit" value="Crear viaje" name="createTravel" />
-			<input type="reset" value="Restablecer"/>
+			<button type="submit" name="createTravel" accesskey="c"/><underline class="accesskey">C</underline>rear viaje</button>
+			<!-- <input type="reset" value="Restablecer"/> -->
 		</fieldset>
 	</form>
 </div>
