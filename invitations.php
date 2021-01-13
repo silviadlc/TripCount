@@ -68,8 +68,13 @@
 		}
 	?>
         <div class="logo">
-            <img src="media/Logotripcuenta.png">
-        </div>
+			<img src="media/Logotripcuenta.png">
+		</div>
+		
+		<?php
+			send_email('eduardsnchez@gmail.com', '¡Hey! Te han invitado para entrar a "'.$travelContent['name'].'"',
+			'adsaddasd');
+		?>
 
         <h1>INVITACIONES</h1>
         <div class="form">
