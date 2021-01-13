@@ -19,7 +19,7 @@
 			echo getUsernameById($localUser['idUsername']);
 		} ?>
 		</div>
-		<div>
+		<div id="home">
 			<a href="./home.php" class="home">
 	  		<i class="fas fa-home" accesskey="h"></i>
 			</a>

@@ -38,6 +38,11 @@ underline {
   height: 11%;
 }
 
+#home {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 .home {
   font-size: 40px;
   color: white;
@@ -174,7 +179,6 @@ a:link {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 4px;
   background-color: var(--MOrangeM);
   border: 1px solid var(--MOrangeM);
   color: var(--BGreyT);

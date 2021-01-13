@@ -1,3 +1,17 @@
+body {
+  height: 100%;
+}
+
+.travels {
+  border: 2px solid var(--BGreyT);
+  width: 60%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--BGreyT);
+  box-shadow: 2px 2px 5px var(--GBlueM);
+}
+
 .travels table {
   margin-top: 20px;
 }
@@ -13,6 +27,7 @@ button.add {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  font-size: 15px;
 }
 
 #controlsTravel:last-of-type {
