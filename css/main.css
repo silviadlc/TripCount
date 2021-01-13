@@ -29,7 +29,6 @@ underline {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  border-radius: 4px;
   background-color: var(--DBlueM);
   border: 1px solid var(--DBlueM);
   color: var(--MYellowT);
@@ -39,10 +38,9 @@ underline {
   height: 11%;
 }
 
-.house {
-  height: 30px;
-  width: 30px;
-  color: var(--GBlueT);
+.home {
+  font-size: 40px;
+  color: white;
 }
 
 a:link {
@@ -185,4 +183,10 @@ a:link {
   height: 11%;
   padding: 1%;
   margin-top: 370px;
+}
+
+@media (max-width: 900px) {
+  .home {
+    font-size: 35px;
+  }
 }

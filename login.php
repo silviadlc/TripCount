@@ -47,13 +47,14 @@
         <div class="logo">
             <img src="../media/Logotripcuenta.png">
         </div>
-
-        <form action="#" method="POST">
-            <h1>INICIAR SESIÓN</h1>
-            <label for="userEmail"><b>Correo electrónico</b></label><br>
-            <input type="email" placeholder="Introduce correo electrónico" name="userEmail"><br><br>
-            <label for="password"><b>Contraseña</b></label><br>
-            <input type="password" placeholder="Introduce contraseña" id="password" name="password"><br><br>
-            <button type="submit" name="sendLogin">Entrar</button>                
-		</form>
+		<div class="form">
+			<form action="#" method="POST">
+				<h1>INICIAR SESIÓN</h1><br><br>
+				<label for="userEmail"><b>Correo electrónico</b></label><br>
+				<input type="email" placeholder="Introduce correo electrónico" name="userEmail"><br><br>
+				<label for="password"><b>Contraseña</b></label><br>
+				<input type="password" placeholder="Introduce contraseña" id="password" name="password"><br><br>
+				<button type="submit" name="sendLogin" accesskey="e"><underline class="accesskey">E</underline>ntrar</button>                
+			</form>
+		</div>
 		
