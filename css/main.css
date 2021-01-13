@@ -49,6 +49,10 @@ underline {
   color: white;
 }
 
+.user {
+  font-size: 20px;
+}
+
 a:link {
   text-decoration: none;
 }

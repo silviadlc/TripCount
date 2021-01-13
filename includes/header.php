@@ -15,7 +15,7 @@
 	</head>
 	<header>
 	<div class="header">
-		<div><?php if(isset($_SESSION['userLogged'])){
+		<div class="user"><?php if(isset($_SESSION['userLogged'])){
 			echo getUsernameById($localUser['idUsername']);
 		} ?>
 		</div>
