@@ -2,6 +2,10 @@ body {
   height: 100%;
 }
 
+.content-title {
+  font-weight: bold;
+}
+
 .travels {
   border: 2px solid var(--BGreyT);
   width: 80%;
