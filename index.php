@@ -18,7 +18,7 @@
 	<body>
 		<div class="Welcome">
 			<div class="WelcomeTDiv">
-				<h1 class="WelcomeText">Bienvenido a Trip Cuenta!</h1>
+				<h1 class="WelcomeText">¡Bienvenido a Trip Cuenta!</h1>
 			</div>
 			<div class="Errors">
 			</div>
@@ -26,14 +26,18 @@
 				<h3 class="SubWelcomeText">Trip Cuenta es una página dedicada a la gestión de gastos en viajes organizados.</h3>
 			</div>
 			<div class="landingButtons">
-				<form method="POST" action="login.php">
-					<input type="submit" name="login" value="Login" class="inputButton">
-				</form>
-				<img src="media/Logotripcuenta.png" width="100px" height="50px">
-				<form method="POST" action="core/register.php">
-					<input type="submit" name="register" value="Register" class="inputButton">
-				</form>
-		</div>
+				<div class="logo">
+					<img src="media/Logotripcuenta.png"">
+				</div>
+				<div class="access">
+					<form method="POST" action="login.php">
+						<input type="submit" name="login" value="Login" class="inputButton">
+					</form>
+					<form method="POST" action="core/register.php">
+						<input type="submit" name="register" value="Register" class="inputButton">
+					</form>
+				</div>
+			</div>
 		</div>
 
 		
