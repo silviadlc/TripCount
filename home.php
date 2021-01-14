@@ -88,10 +88,11 @@
 		</div>
 		<table border="1" width="100%">
 			<tr>
-				<td>#</td>
-				<td>Nombre del viaje</td>
-				<td>Descripción del viaje</td>
-				<td>Moneda asignada al viaje</td>
+				<th>#</th>
+				<th>Nombre del viaje</th>
+				<th>Descripción del viaje</th>
+				<th>Moneda asignada al viaje</th>
+				<th>Acciones</th>
 			</tr>
 			<?php
 				if(!isset($_GET['order'])) {

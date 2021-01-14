@@ -1,0 +1,40 @@
+form#editTravel {
+  border: 2px solid var(--BGreyT);
+  width: 50%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--BGreyT);
+  box-shadow: 2px 2px 5px var(--GBlueM);
+}
+
+form#editTravel input,
+select {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 8px 20px;
+  margin: 8px 8px;
+  display: inline-block;
+  border: 1px solid var(--BGreyT);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+button[type="submit"] {
+  background-color: var(--SOrangeM);
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.8;
+}

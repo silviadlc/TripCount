@@ -27,7 +27,8 @@
 			'/login.php' => 'Iniciar sesión - ',
 			'/home.php' => 'Home - ',
 			'/invitations.php' => 'Invitaciones -',
-			'/' => '¡Bienvenido! - '
+			'/edit.php' => 'Editar viaje - ',
+			'/' => '¡Bienvenid@ a TripCount!'
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -45,7 +46,8 @@
 			'/login.php' => '../css/login.css',
 			'/home.php' => '../css/home.css',
 			'/invitations.php' => '../css/invitations.css',
-			'/index.php' => '../css/landing.css'
+			'/index.php' => '../css/landing.css',
+			'/edit.php' => '../css/edit.css'
 		);
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
@@ -104,6 +106,7 @@
 				<td>'.$row['name'].'</td>
 				<td>'.$row['description'].'</td>
 				<td>'.getNameCurrency($row['currency']).'</td>
+				<td><a href="edit.php"><i class="far fa-edit"></i></a></td>
 			</tr>';
 		}
 
