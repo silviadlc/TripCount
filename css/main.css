@@ -10,6 +10,7 @@
   --GBlueM: #393b82;
   --DBlueM: #01068c;
   --WhiteT: #eeeeee;
+  --WhiteB: #ffffff;
 }
 
 html,
@@ -18,6 +19,75 @@ body {
   background-image: url(../media/background_body.png);
   background-size: cover;
   height: 100%;
+}
+
+.breadcrumb {
+  list-style: none;
+  overflow: hidden;
+  font-size: 16px;
+  margin: 20px;
+  padding: 0;
+}
+.breadcrumb li {
+  float: left;
+  background: var(--WhiteB);
+}
+.breadcrumb li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0 10px 55px;
+  background: var(--MOrangeM); /* fallback color */
+  background: var(--SOrangeM);
+  position: relative;
+  display: block;
+  float: left;
+}
+.breadcrumb li a:after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid var(--SOrangeM);
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  left: 100%;
+  z-index: 2;
+}
+.breadcrumb li a:before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid var(--WhiteB);
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 1;
+}
+.breadcrumb li:first-child a {
+  padding-left: 10px;
+}
+.breadcrumb li:last-child a {
+  background: transparent !important;
+  color: black;
+  pointer-events: none;
+  cursor: default;
+}
+.breadcrumb li:last-child a:after {
+  border: 0;
+}
+.breadcrumb li a:hover {
+  background: var(--MYellowT);
+}
+.breadcrumb li a:hover:after {
+  border-left-color: var(--MYellowT) !important;
 }
 
 underline {

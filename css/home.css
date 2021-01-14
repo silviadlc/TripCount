@@ -40,7 +40,7 @@
 button.add {
   background: var(--MOrangeM);
   border-radius: 5px;
-  color: white;
+  color: var(--WhiteB);
   font-weight: bold;
   cursor: pointer;
   font-size: 15px;

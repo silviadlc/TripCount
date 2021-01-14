@@ -67,6 +67,13 @@
 			}
 		}
 	?>
+		<div id="breadcrumb"
+			<ul class="breadcrumb">
+			<li><a href="/">Login / Registro</a></li>
+			<li><a href="home.php">Home</a></li>
+			<li><a href="invitations.php">Invitaciones</a></li>
+			</ul>
+		</div>
         <div class="logo">
 			<img src="media/Logotripcuenta.png">
 		</div>
