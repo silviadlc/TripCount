@@ -62,34 +62,14 @@ button:hover {
   }
 }
 
-@media (max-height: 1000px) {
-  .form {
-    height: 45%;
-  }
-}
-
-@media (max-height: 900px) {
+@media (max-height: 700px) {
   .form {
     height: 50%;
   }
 }
-@media (max-height: 800px) {
-  .form {
-    height: 55%;
-  }
-}
-@media (max-height: 700px) {
-  .form {
-    height: 60%;
-  }
-}
-@media (max-height: 650px) {
-  .form {
-    height: 65%;
-  }
-}
+
 @media (max-height: 600px) {
   .form {
-    height: 70%;
+    height: 55%;
   }
 }

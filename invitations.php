@@ -80,7 +80,7 @@
 				<center id="newEmailList">
 					<input name="emailsList[]" type="email" placeholder="Introduce un correo electrónico">
 				</center>
-				<button class="newEmail" onclick="addInput()" style="width: 30%;">Añadir</button>    
+				<button class="newEmail" onclick="addInput()" style="width: 30%;" accesskey="a"><underline class="accesskey">A</underline>ñadir</button>    
 				<div id="btn">
 					<input class="submit" type="submit" name="sendInvitations">
 				</div> 

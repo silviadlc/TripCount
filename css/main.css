@@ -109,6 +109,10 @@ a:link {
 .alert.danger {
   background: #fff5f4;
   border: 1px solid #f68b8b;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .danger > .icon {
@@ -190,6 +194,14 @@ a:link {
   overflow: hidden;
   margin-top: 108px;
   clear: both;
+}
+
+.footer img {
+  padding-left: 20px;
+}
+
+.footer p {
+  padding-right: 30px;
 }
 
 @media (max-width: 900px) {

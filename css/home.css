@@ -119,3 +119,12 @@ button[type="submit"] {
 button[type="submit"]:hover {
   opacity: 0.8;
 }
+
+@media (max-width: 800px) {
+  .content {
+    width: 85%;
+  }
+  button[type="submit"] {
+    width: 30%;
+  }
+}
