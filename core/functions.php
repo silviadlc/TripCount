@@ -27,7 +27,7 @@
 			'/login.php' => 'Iniciar sesión - ',
 			'/home.php' => 'Home - ',
 			'/invitations.php' => 'Invitaciones -',
-			'/index.php' => '¡Bienvenido! - '
+			'/' => '¡Bienvenido! - '
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
