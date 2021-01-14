@@ -90,11 +90,16 @@ input[type="text"] {
   border-radius: 10px;
 }
 
-select {
+#controlsTravel form {
+  width: 40%;
+  height: 90%;
+}
+
+select#orderTravels {
   font-size: 14px;
   border-radius: 4px;
-  width: 65%;
-  height: 95%;
+  width: 75%;
+  height: 70%;
 }
 
 select#travelCurrency {
@@ -121,10 +126,20 @@ button[type="submit"]:hover {
 }
 
 @media (max-width: 800px) {
-  .content {
-    width: 85%;
+  .travels {
+    width: 100%;
+  }
+  form#createTravel {
+    width: 100%;
+  }
+  #content {
+    width: 80%;
   }
   button[type="submit"] {
     width: 30%;
+  }
+  #controlsTravel form {
+    width: 50%;
+    height: 50%;
   }
 }
