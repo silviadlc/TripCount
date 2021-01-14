@@ -14,11 +14,10 @@
 
 html,
 body {
-  margin: 0px;
-  height: 90%;
   font-family: "Londrina Solid";
   background-image: url(../media/background_body.png);
   background-size: cover;
+  height: 100%;
 }
 
 underline {
@@ -189,8 +188,7 @@ a:link {
   color: var(--BGreyT);
   text-decoration: none;
   overflow: hidden;
-  padding: 1%;
-  margin-top: 115px;
+  margin-top: 108px;
   clear: both;
 }
 

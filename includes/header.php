@@ -25,4 +25,4 @@
 			</a>
 		</div>
 	</header>
-	<body>
+	<body id="cover">
