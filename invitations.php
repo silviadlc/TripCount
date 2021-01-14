@@ -32,7 +32,7 @@
 						if($sql) {
 							if(send_email($email, '¡Hey! Te han invitado para entrar a "'.$travelContent['name'].'"',
 								'<p>¡Hola, '.$email.'!</p>
-								<p>Has recibido este correo electrónico debido a que has sido invitado para entrar al viaje "'.$travelContent['name'].'" por '.$localUser['name'].' '.$localUser['lastName'].'
+								<p>Has recibido este correo electrónico debido a que has sido invitado para entrar al viaje "'.$travelContent['name'].'" por '.$localUser['name'].' '.$localUser['lastName'].'.
 								<br><a href="//tricuenta.tk/completeInvitation.php?id='.$conn->lastInsertId().'"><button style="
 								background-color: #008CBA; 
 								border: none;
@@ -68,8 +68,8 @@
 		}
 	?>
         <div class="logo">
-            <img src="media/Logotripcuenta.png">
-        </div>
+			<img src="media/Logotripcuenta.png">
+		</div>
 
         <h1>INVITACIONES</h1>
         <div class="form">
