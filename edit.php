@@ -1,4 +1,30 @@
-<?php include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php' ?>
+<?php include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php'; 
+    if(!isset($_GET['idTravel']) || empty($_GET['idTravel'])) {
+        die(showAlert('danger', 'No puedes acceder: Debes de ser dueño de un viaje para invitarlos.'));
+    } else {
+        if(!is_numeric($_GET['idTravel'])) {
+            die(showAlert('danger', 'La ID del viaje esta formateada incorrectamente.'));
+        } else if(is_numeric($_GET['idTravel'])) {
+            $sql = $conn->prepare('SELECT * FROM travels WHERE idTravel = ?');
+            $sql->bindParam(1, $_GET['idTravel']); $sql->execute();
+
+            if($sql->rowCount() != 0) {
+                $travelContent = $sql->fetch();
+                if($travelContent['idUsername'] != $localUser['idUsername']) {
+                    die(showAlert('danger', 'No eres el dueño de este viaje y no puedes invitar.'));
+                } else {
+                    $sql = $conn->query('SELECT * FROM users WHERE idTravel = "'.$_SESSION['idTravel'].'"');
+                    $localUser = $sql->fetch();
+                }
+            } else {
+                die(showAlert('danger', 'La ID no concuerda con ningún viaje.'));
+            }
+        } else {
+            die(showAlert('danger', 'Error desconocido.'));
+        }
+    }
+?>
+
 <div id="breadcrumb"
 	<ul class="breadcrumb">
     <li><a href="home.php">Home</a></li>

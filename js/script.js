@@ -19,16 +19,19 @@ function showFormCustom(elementFormById) {
 	window.location.href = '#' + elementForm.id;
 }
 
-function insertAfter(newNode, referenceNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
-
 function addInput() {
 	var form = document.getElementById("newEmailList");
-	var newInput = document.createElement("input");    
+	var newInput = document.createElement("input");
+	newInput.setAttribute('id',"inputEmail");         
 	newInput.setAttribute('name',"emailsList[]");     
 	newInput.setAttribute('type', "email");
 	newInput.setAttribute('placeholder',"Introduce correo electrónico");
 	newInput.setAttribute('required','');
 	form.insertBefore(newInput, form.childNodes[0]);
+}
+
+function deleteInput() {
+	var form = document.getElementById("newEmailList");
+	var newInput = document.createElement("input"); 
+	form.removeChild(form.firstChild);
 }
