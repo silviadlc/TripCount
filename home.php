@@ -121,7 +121,7 @@
 			<legend>Crear un nuevo viaje</legend>
 			<label for="travelName">
 				Nombre del viaje:
-				<input type="text" name="travelName" placeholder="Inserta aquí el nombre del viaje." id="travelName" />
+				<input type="text" name="travelName" placeholder="Inserta aquí el nombre del viaje." id="travelName" maxlength="30"/>
 			</label>
 			<label for="travelDescription">
 				Descripción del viaje:

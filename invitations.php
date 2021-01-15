@@ -57,54 +57,55 @@
 				if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
 					$duplicatedInvitation = $conn->query('SELECT idInvitation FROM invitations WHERE idTravel = "'.$_GET['idTravel'].'" AND email = "'.$email.'"');
 					if($duplicatedInvitation->rowCount() == 0) {
-						if($sql) {
-							if(usernameExistsByEmail('email', $email)) {
-								$emailBody = '<p>¡Hola, '.$email.'!</p>
-								<p>Has recibido este correo electrónico debido a que has sido invitado para entrar al viaje "'.$travelContent['name'].'" por '.$localUser['name'].' '.$localUser['lastName'].'.
-								<br><a href="//sildelax.tk/completeInvitation.php?id='.$conn->lastInsertId().'"><button style="
-								background-color: #008CBA; 
-								border: none;
-								color: white;
-								padding: 15px 32px;
-								text-align: center;
-								text-decoration: none;
-								display: inline-block;
-								font-size: 16px;
-								margin: 4px 2px;
-								cursor: pointer; margin-top: 20px;">¡Clic aquí para aceptar la invitación!</button></a>';
-							} else {
-								$emailBody = '<p>¡Hola, '.$email.'!</p>
-								<p>Has recibido este correo electrónico debido a que has sido invitado para entrar al viaje "'.$travelContent['name'].'" por '.$localUser['name'].' '.$localUser['lastName'].'.</p>
-								<p>Para poder aceptar la invitación del viaje, deberás de registrarte primero.</p>
-								<br><a href="//sildelax.tk/register.php?inv='.$email.'"><button style="
-								background-color: #469241; 
-								border: none;
-								color: white;
-								padding: 15px 32px;
-								text-align: center;
-								text-decoration: none;
-								display: inline-block;
-								font-size: 16px;
-								margin: 4px 2px;
-								cursor: pointer; margin-top: 20px;">REGISTRARME</button></a>
+						if(usernameExistsByEmail($email)) {
+							$emailBody = '<p>¡Hola, '.$email.'!</p>
+							<p>Has recibido este correo electrónico debido a que has sido invitado para entrar al viaje "'.$travelContent['name'].'" por '.$localUser['name'].' '.$localUser['lastName'].'.
+							<br><a href="//sildelax.tk/completeInvitation.php?id='.$conn->lastInsertId().'"><button style="
+							background-color: #008CBA; 
+							border: none;
+							color: white;
+							padding: 15px 32px;
+							text-align: center;
+							text-decoration: none;
+							display: inline-block;
+							font-size: 16px;
+							margin: 4px 2px;
+							cursor: pointer; margin-top: 20px;">¡Clic aquí para aceptar la invitación!</button></a>';
+						} else {
+							$emailBody = '<p>¡Hola, '.$email.'!</p>
+							<p>Has recibido este correo electrónico debido a que has sido invitado para entrar al viaje "'.$travelContent['name'].'" por '.$localUser['name'].' '.$localUser['lastName'].'.</p>
+							<p>Para poder aceptar la invitación del viaje, deberás de registrarte primero.</p>
+							<br><a href="//sildelax.tk/register.php?inv='.$email.'"><button style="
+							background-color: #469241; 
+							border: none;
+							color: white;
+							padding: 15px 32px;
+							text-align: center;
+							text-decoration: none;
+							display: inline-block;
+							font-size: 16px;
+							margin: 4px 2px;
+							cursor: pointer; margin-top: 20px;">REGISTRARME</button></a>
 								
-								<a href="//sildelax.tk/completeInvitation.php?id='.$conn->lastInsertId().'"><button style="
-								background-color: #008CBA; 
-								border: none;
-								color: white;
-								padding: 15px 32px;
-								text-align: center;
-								text-decoration: none;
-								display: inline-block;
-								font-size: 16px;
-								margin: 4px 2px;
-								cursor: pointer; margin-top: 20px;">Clic aquí para aceptar la invitación.</button></a>';
-							}
+							<a href="//sildelax.tk/completeInvitation.php?id='.$conn->lastInsertId().'"><button style="
+							background-color: #008CBA; 
+							border: none;
+							color: white;
+							padding: 15px 32px;
+							text-align: center;
+							text-decoration: none;
+							display: inline-block;
+							font-size: 16px;
+							margin: 4px 2px;
+							cursor: pointer; margin-top: 20px;">Clic aquí para aceptar la invitación.</button></a>';
+						}
 							
-							if(!send_email($email, '¡Hey! Te han invitado para entrar a "'.$travelContent['name'].'"', $emailBody)) {
+						if(!send_email($email, '¡Hey! Te han invitado para entrar a "'.$travelContent['name'].'"', $emailBody)) {
+							$alertsLocal[] = 'La invitación para el correo electrónico "'.$email.'" no ha podido ser enviado correctamente.';
+						} else {
+							$sql = $conn->query('INSERT INTO invitations SET idUsername = "'.$localUser['idUsername'].'", idTravel = "'.$_GET['idTravel'].'", email = "'.$email.'"');
+							if(!$sql) {
 								$alertsLocal[] = 'La invitación para el correo electrónico "'.$email.'" no ha podido ser enviado correctamente.';
-							} else {
-								$sql = $conn->query('INSERT INTO invitations SET idUsername = "'.$localUser['idUsername'].'", idTravel = "'.$_GET['idTravel'].'", email = "'.$email.'"');
 							}
 						}
 					} else {
@@ -122,10 +123,12 @@
 				exit;
 			} else {
 				$_SESSION['alerts'][] = array('type' => 'success', 'message' => 'Se han enviado las invitaciones correctamente.');
-				echo '<meta http-equiv="refresh" content="0; url=/">';
+				echo '<meta http-equiv="refresh" content="0; url=/home.php">';
 				exit;
 			}
 		}
+
+		echo usernameExistsByEmail('eduardsnchez@gmail.com');
 	?>
         <div class="form">
             <p>¡Aquí puedes introducir el correo electrónico de los amigos/as con los que quieres compartir ésta experiencia en el viaje "<?php echo $travelContent['name']; ?>"!</p>
