@@ -100,7 +100,6 @@
 	?>
 		<div id="breadcrumb"
 			<ul class="breadcrumb">
-			<li><a href="/">Login / Registro</a></li>
 			<li><a href="home.php">Home</a></li>
 			<li><a href="invitations.php">Invitaciones</a></li>
 			</ul>
@@ -118,7 +117,7 @@
 				<center id="newEmailList">
 					<input name="emailsList[]" type="email" placeholder="Introduce un correo electrónico">
 				</center>
-				<button class="newEmail" onclick="addInput()" style="width: 30%;" accesskey="a"><underline class="accesskey">A</underline>ñadir</button>    
+				<button class="newEmail" onclick="addInput()" style="width: 30%;" accesskey="a"><underline class="accesskey">A</underline>ñadir campo</button>    
 				<div id="btn">
 					<input class="submit" type="submit" name="sendInvitations">
 				</div> 
