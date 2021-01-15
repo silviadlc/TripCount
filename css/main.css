@@ -17,6 +17,8 @@ html,
 body {
   font-family: "Londrina Solid";
   background-image: url(../media/background_body.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   height: 100%;
 }
