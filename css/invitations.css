@@ -39,7 +39,8 @@ input {
   box-sizing: border-box;
   border-radius: 10px;
 }
-.fas {
+#addInput,
+#deleteInput {
   font-size: 20px;
 }
 .newEmail {
@@ -69,7 +70,3 @@ input {
 button:hover {
   opacity: 0.8;
 }
-
-/* input[type="email"] {
-  display: block;
-} */

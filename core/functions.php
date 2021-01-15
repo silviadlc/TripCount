@@ -126,7 +126,9 @@
 				echo '<td>No ha habido ninguna actualización</td>';
 			}
 
-				echo '<td><a href="edit.php"><i class="far fa-edit"></i></a></td>
+				echo '<td><a href="#" onclick="showDetails()"><i class="fas fa-chevron-circle-down"></i>
+					<a href="edit.php"><i class="far fa-edit"></i></a>
+					</td>
 			</tr>';
 		}
 
