@@ -28,12 +28,11 @@
 				if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
 					$duplicatedInvitation = $conn->query('SELECT idInvitation FROM invitations WHERE idTravel = "'.$_GET['idTravel'].'" AND email = "'.$email.'"');
 					if($duplicatedInvitation->rowCount() == 0) {
-						$sql = $conn->query('INSERT INTO invitations SET idUsername = "'.$localUser['idUsername'].'", idTravel = "'.$_GET['idTravel'].'", email = "'.$email.'"');
 						if($sql) {
-							if(send_email($email, '¡Hey! Te han invitado para entrar a "'.$travelContent['name'].'"',
-								'<p>¡Hola, '.$email.'!</p>
+							if(usernameExistsByEmail('email', $email)) {
+								$emailBody = '<p>¡Hola, '.$email.'!</p>
 								<p>Has recibido este correo electrónico debido a que has sido invitado para entrar al viaje "'.$travelContent['name'].'" por '.$localUser['name'].' '.$localUser['lastName'].'.
-								<br><a href="//tricuenta.tk/completeInvitation.php?id='.$conn->lastInsertId().'"><button style="
+								<br><a href="//sildelax.tk/completeInvitation.php?id='.$conn->lastInsertId().'"><button style="
 								background-color: #008CBA; 
 								border: none;
 								color: white;
@@ -43,8 +42,40 @@
 								display: inline-block;
 								font-size: 16px;
 								margin: 4px 2px;
-								cursor: pointer; margin-top: 20px;">¡Clic aquí para aceptar la invitación!</button></a>')) {
-
+								cursor: pointer; margin-top: 20px;">¡Clic aquí para aceptar la invitación!</button></a>';
+							} else {
+								$emailBody = '<p>¡Hola, '.$email.'!</p>
+								<p>Has recibido este correo electrónico debido a que has sido invitado para entrar al viaje "'.$travelContent['name'].'" por '.$localUser['name'].' '.$localUser['lastName'].'.</p>
+								<p>Para poder aceptar la invitación del viaje, deberás de registrarte primero.</p>
+								<br><a href="//sildelax.tk/register.php?inv='.$email.'"><button style="
+								background-color: #469241; 
+								border: none;
+								color: white;
+								padding: 15px 32px;
+								text-align: center;
+								text-decoration: none;
+								display: inline-block;
+								font-size: 16px;
+								margin: 4px 2px;
+								cursor: pointer; margin-top: 20px;">REGISTRARME</button></a>
+								
+								<a href="//sildelax.tk/completeInvitation.php?id='.$conn->lastInsertId().'"><button style="
+								background-color: #008CBA; 
+								border: none;
+								color: white;
+								padding: 15px 32px;
+								text-align: center;
+								text-decoration: none;
+								display: inline-block;
+								font-size: 16px;
+								margin: 4px 2px;
+								cursor: pointer; margin-top: 20px;">Clic aquí para aceptar la invitación.</button></a>';
+							}
+							
+							if(!send_email($email, '¡Hey! Te han invitado para entrar a "'.$travelContent['name'].'"', $emailBody)) {
+								$alertsLocal[] = 'La invitación para el correo electrónico "'.$email.'" no ha podido ser enviado correctamente.';
+							} else {
+								$sql = $conn->query('INSERT INTO invitations SET idUsername = "'.$localUser['idUsername'].'", idTravel = "'.$_GET['idTravel'].'", email = "'.$email.'"');
 							}
 						}
 					} else {
@@ -53,7 +84,7 @@
 				} else {
 					$alertsLocal[] = 'El correo electrónico "'.$email.'" tiene un formato inválido y se ha saltado.';
 				}
-				sleep(2);
+				sleep(1);
 			}
 
 			if(@$alertsLocal) {

@@ -1,6 +1,12 @@
 <?php
 	require $_SERVER["DOCUMENT_ROOT"].'/core/config.php';
 
+	if(DEBUG) {
+		ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(E_ALL);
+	}
+
 	/**
 	 * Este archivo realiza la conexión hacía la base de datos recibiendo las constantes del archivo de config.php
 	 */

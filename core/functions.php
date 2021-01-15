@@ -19,6 +19,18 @@
 		return $userLocal['name'];
 	}
 
+	function usernameExistsByEmail($stringToFilter) {
+		global $conn;
+		$stringToFilter = filter_var($stringToFilter, FILTER_SANITIZE_STRING);
+		$sql = $conn->query("SELECT idUsername FROM users WHERE email = '$stringToFilter'");
+
+		if($sql->rowCount() == 1) {
+			return true;
+		}
+
+		return false;
+	}
+
 	function getTitleDocument() {
 		/**
 		 * Esta función lo que realizará es obtener el título y evitar se tenga que realizar siempre un TITLE.
@@ -106,7 +118,15 @@
 				<td>'.$row['name'].'</td>
 				<td>'.$row['description'].'</td>
 				<td>'.getNameCurrency($row['currency']).'</td>
-				<td><a href="edit.php"><i class="far fa-edit"></i></a></td>
+				<td>Hace '.timeAgo($row['created']).'</td>';
+				
+			if(!empty($row['updated'])) {
+				echo '<td>Actualizado hace '.timeAgo($row['updated']).'</td>';
+			} else {
+				echo '<td>No ha habido ninguna actualización</td>';
+			}
+
+				echo '<td><a href="edit.php"><i class="far fa-edit"></i></a></td>
 			</tr>';
 		}
 
@@ -129,7 +149,7 @@
         if ($type == 'info'){
 			echo '
 		<div class="alert info">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close">?</span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">Información</h2>
 				<p>'.$message.'</p>
@@ -138,7 +158,7 @@
         } elseif ($type == 'danger') {
 			echo '
 		<div class="alert danger">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close">X</span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">¡Parece que ha habido un problema!</h2>
 				<p>'.$message.'</p>
@@ -147,7 +167,7 @@
 		} elseif ($type == 'danger-m') {
 			echo '
 		<div class="alert danger">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close"></span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">¡Parece que ha habido un problema!</h2>
 				<p>'.$message.'</p>
@@ -162,7 +182,7 @@
         } elseif ($type == 'success') {
 			echo '
 		<div class="alert success">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close">X</span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">¡Éxito!</h2>
 				<p>'.$message.'</p>
@@ -171,7 +191,7 @@
         } elseif ($type == 'warning') {
 			echo '
 		<div class="alert warning">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close">X</span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">Aviso</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet lacus et tortor placerat mollis. Nam sapien mauris, rhoncus sit amet dapibus nec, convallis et metus. Praesent ut maximus sem.</p>
@@ -285,4 +305,34 @@
 		} else {
 			return true;
 		}
+	}
+	
+	function timeAgo($since) {
+		$since = time() - strtotime($since);
+
+		$chunks = array(
+			array(60 * 60 * 24 * 365 , 'año'),
+			array(60 * 60 * 24 * 30 , 'mes'),
+			array(60 * 60 * 24 * 7, 'semana'),
+			array(60 * 60 * 24 , 'día'),
+			array(60 * 60 , 'hora'),
+			array(60 , 'minuto'),
+			array(1 , 'segundo')
+		);
+	
+		for ($i = 0, $j = count($chunks); $i < $j; $i++) {
+			$seconds = $chunks[$i][0];
+			$name = $chunks[$i][1];
+			if (($count = floor($since/$seconds)) != 0) {
+				break;
+			}
+		}
+		
+		if($name == 'mes') {
+			$print = ($count == 1) ? '1 '.$name : "$count {$name}es";
+		} else {
+			$print = ($count == 1) ? '1 '.$name : "$count {$name}s";
+		}
+
+		return $print;
 	}

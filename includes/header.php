@@ -21,8 +21,17 @@
 		</div>
 		<div id="home">
 			<a href="./home.php" class="home">
-	  		<i class="fas fa-home" accesskey="h"></i>
+	  			<i class="fas fa-home" accesskey="h"></i>
 			</a>
+			<?php
+				if(isset($_SESSION['userLogged']) && !empty($_SESSION['userLogged'])) {
+			?>
+			<a href="/logout.php" class="home" style="margin-left: 20px;">
+				<i class="fas fa-sign-out-alt"></i>
+			</a>
+			<?php
+				}
+			?>
 		</div>
 	</header>
 	<body id="cover">

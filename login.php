@@ -1,4 +1,5 @@
-	<?php	include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php';
+	<?php	
+		include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php';
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sendLogin'])) {
 			$data['userEmail'] = filter_var($_POST['userEmail'], FILTER_SANITIZE_EMAIL, FILTER_SANITIZE_STRING);
 			$data['password'] = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
@@ -46,7 +47,21 @@
     ?>
         <div class="logo">
             <img src="../media/Logotripcuenta.png">
-        </div>
+		</div>
+		<!-- alert-content -->
+		<?php
+			if(isset($_SESSION['alerts']) && !empty($_SESSION['alerts'])) {
+				foreach($_SESSION['alerts'] as $alert) {
+					if($alert['type'] == 'danger-m') {
+						showAlert($alert['type'], $alert['message'][0], $alert['message'][1]);
+					} else {
+						showAlert($alert['type'], $alert['message']);
+					}
+				}
+				unset($_SESSION['alerts']);
+			}
+		?>
+		<!-- /alert-content -->
 		<div class="form">
 			<form action="#" method="POST">
 				<h1>INICIAR SESIÓN</h1><br><br>

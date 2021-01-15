@@ -92,6 +92,8 @@
 				<th>Nombre del viaje</th>
 				<th>Descripción del viaje</th>
 				<th>Moneda asignada al viaje</th>
+				<th>Creado</th>
+				<th>Última actualización</th>
 				<th>Acciones</th>
 			</tr>
 			<?php
