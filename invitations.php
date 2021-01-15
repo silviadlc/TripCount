@@ -13,7 +13,7 @@
 					$travelContent = $sql->fetch();
 					if($travelContent['idUsername'] != $localUser['idUsername']) {
 						die(showAlert('danger', 'No eres el dueño de este viaje y no puedes invitar.'));
-					}
+					} 
 				} else {
 					die(showAlert('danger', 'La ID no concuerda con ningún viaje.'));
 				}
@@ -83,12 +83,13 @@
             <form id="form" method="POST" action="#">
                 <br>
 				<label for="userEmail"><b>Correos electrónicos</b></label><br><br>
-				<center id="newEmailList">
-					<input name="emailsList[]" type="email" placeholder="Introduce un correo electrónico">
-				</center>
-				<button class="newEmail" onclick="addInput()" style="width: 30%;" accesskey="a"><underline class="accesskey">A</underline>ñadir campo</button>    
+				<div id="newEmailList">
+					<input id="inputEmail" name="emailsList[]" type="email" placeholder="Introduce un correo electrónico" required>
+					<i class="fas fa-plus-square" onclick="addInput()"></i>
+					<i class="fas fa-minus-square" onclick="deleteInput()"></i>
+				</div>
 				<div id="btn">
-					<input class="submit" type="submit" name="sendInvitations">
+					<button class="submit" type="submit" name="sendInvitations" accesskey="e"><underline class="accesskey">E</underline>nviar</button>
 				</div> 
             </form>
         </div>
