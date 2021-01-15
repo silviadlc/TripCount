@@ -1,5 +1,34 @@
 	<?php 
 		require $_SERVER["DOCUMENT_ROOT"].'/includes/header.php';
+	?>
+
+		<div id="breadcrumb"
+			<ul class="breadcrumb">
+			<li><a href="home.php">Home</a></li>
+			<li><a href="invitations.php">Invitaciones</a></li>
+			</ul>
+		</div>
+        <div class="logo">
+			<img src="media/Logotripcuenta.png">
+		</div>
+
+		<h1>INVITACIONES</h1>
+		<!-- alert-content -->
+		<?php
+			if(isset($_SESSION['alerts']) && !empty($_SESSION['alerts'])) {
+				foreach($_SESSION['alerts'] as $alert) {
+					if($alert['type'] == 'danger-m') {
+						showAlert($alert['type'], $alert['message'][0], $alert['message'][1]);
+					} else {
+						showAlert($alert['type'], $alert['message']);
+					}
+				}
+				unset($_SESSION['alerts']);
+			}
+		?>
+		<!-- /alert-content -->
+
+	<?php
 		if(!isset($_GET['idTravel']) || empty($_GET['idTravel'])) {
 			die(showAlert('danger', 'No puedes acceder: Debes de ser dueño de un viaje para invitarlos.'));
 		} else {
@@ -89,26 +118,15 @@
 
 			if(@$alertsLocal) {
 				$_SESSION['alerts'][] = array('type' => 'danger-m', 'message' => array('Ha surgido algunos problemas al enviar las invitaciones. ¡Dale un vistazo!', $alertsLocal));
-				echo '<meta http-equiv="refresh" content="0; url=/home.php">';
+				echo '<meta http-equiv="refresh" content="0; url=">';
 				exit;
 			} else {
 				$_SESSION['alerts'][] = array('type' => 'success', 'message' => 'Se han enviado las invitaciones correctamente.');
-				echo '<meta http-equiv="refresh" content="0; url=/home.php">';
+				echo '<meta http-equiv="refresh" content="0; url=/">';
 				exit;
 			}
 		}
 	?>
-		<div id="breadcrumb"
-			<ul class="breadcrumb">
-			<li><a href="home.php">Home</a></li>
-			<li><a href="invitations.php">Invitaciones</a></li>
-			</ul>
-		</div>
-        <div class="logo">
-			<img src="media/Logotripcuenta.png">
-		</div>
-
-        <h1>INVITACIONES</h1>
         <div class="form">
             <p>¡Aquí puedes introducir el correo electrónico de los amigos/as con los que quieres compartir ésta experiencia en el viaje "<?php echo $travelContent['name']; ?>"!</p>
             <form id="form" method="POST" action="#">

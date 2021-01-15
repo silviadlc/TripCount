@@ -179,6 +179,10 @@ a:link {
   font-weight: 900;
 }
 
+.icon #close i {
+	font-size: 18px;
+}
+
 .alert.danger {
   background: #fff5f4;
   border: 1px solid #f68b8b;
