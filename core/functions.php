@@ -45,7 +45,8 @@
 			'/login.php' => '../css/login.css',
 			'/home.php' => '../css/home.css',
 			'/invitations.php' => '../css/invitations.css',
-			'/index.php' => '../css/landing.css'
+			'/index.php' => '../css/landing.css',
+			'/register.php' => '../css/register.css'
 		);
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];

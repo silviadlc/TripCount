@@ -30,7 +30,7 @@
 					<input type="submit" name="login" value="Login" class="inputButton">
 				</form>
 				<img src="media/Logotripcuenta.png" width="100px" height="50px">
-				<form method="POST" action="core/register.php">
+				<form method="POST" action="register.php">
 					<input type="submit" name="register" value="Register" class="inputButton">
 				</form>
 		</div>

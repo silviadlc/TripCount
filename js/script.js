@@ -32,3 +32,4 @@ function addInput() {
 	newInput.setAttribute('required','');
 	form.insertBefore(newInput, form.childNodes[0]);
 }
+
