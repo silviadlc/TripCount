@@ -1,0 +1,44 @@
+form {
+	border: 2px solid var(--BGreyT);
+	width: 40%;
+	margin: 0 auto;
+	padding: 16px;
+	border-radius: 10px;
+	background-color: var(--GBlueM);
+	box-shadow: 2px 2px 10px var(--GBlueM);
+}
+
+h1 {
+	text-align: center;
+	color: var(--BGreyT);
+}
+
+label {
+	color: var(--BGreyT);
+}
+
+input[type="email"],
+input[type="password"] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid var(--BGreyT);
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+button {
+	background-color: var(--SOrangeM);
+	color: black;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	border-radius: 10px;
+}
+
+button:hover {
+  	opacity: 0.8;
+}
