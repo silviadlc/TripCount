@@ -1,0 +1,56 @@
+.addPayment {
+  border: 2px solid var(--BGreyT);
+  width: 80%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--BGreyT);
+  box-shadow: 2px 2px 5px var(--GBlueM);
+  margin-top: auto;
+  margin-bottom: auto;
+  display: block;
+}
+
+#multifoto {
+  border: 2px solid var(--BGreyT);
+  width: 80%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--BGreyT);
+  box-shadow: 2px 2px 5px var(--GBlueM);
+  margin-top: 10px;
+}
+
+.usersCheck {
+  display: inline;
+  display: none;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 60%;
+  padding: 8px 20px;
+  margin: 8px 3px;
+  display: inline-block;
+  border: 1px solid var(--BGreyT);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+button[type="submit"] {
+  background-color: var(--SOrangeM);
+  color: black;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.8;
+}
