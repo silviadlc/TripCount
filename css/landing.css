@@ -8,7 +8,7 @@
 .landingButtons {
   width: 20%;
   height: 20%;
-  background-color: var(--MOrangeM);
+  background-color: var(--SOrangeM);
   border: 1px solid var(--BGreyT);
   border-radius: 10px;
   box-shadow: 2px 2px 10px var(--GBlueM);
@@ -35,7 +35,7 @@ img {
 }
 
 .inputButton {
-  background-color: var(--SOrangeM);
+  background-color: var(--MOrangeM);
   border-color: var(--MOrangeM);
   border: none;
   cursor: pointer;
@@ -55,7 +55,7 @@ img {
   width: 97%;
   height: 30%;
   border: 1px solid var(--GBlueM);
-  background-color: var(--GBlueM);
+  background-color: var(--WhiteT);
   border-radius: 10px;
   justify-content: center;
   position: flex-start;
@@ -70,14 +70,14 @@ img {
   width: 70%;
   height: 75%;
   border: 1px solid var(--BGreyT);
-  background-color: var(--DBlueM);
+  background-color: var(--GBlueM);
   border-radius: 10px;
   justify-content: center;
   box-shadow: 2px 2px 10px var(--GBlueM);
 }
 
 .SubWelcomeText {
-  color: var(--BGreyT);
+  color: var(--DBlueM);
   font-size: 25px;
   margin-top: auto;
   margin-bottom: auto;

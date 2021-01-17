@@ -1,5 +1,5 @@
 <?php include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php'; 
-    if(!isset($_GET['idTravel']) || empty($_GET['idTravel'])) {
+   /*  if(!isset($_GET['idTravel']) || empty($_GET['idTravel'])) {
         die(showAlert('danger', 'No puedes acceder: Debes de ser dueño de un viaje para invitarlos.'));
     } else {
         if(!is_numeric($_GET['idTravel'])) {
@@ -22,7 +22,7 @@
         } else {
             die(showAlert('danger', 'Error desconocido.'));
         }
-    }
+    } */
 ?>
 
 <div id="breadcrumb"
