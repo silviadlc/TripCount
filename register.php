@@ -38,11 +38,13 @@ function passwordCheck(){
             <h1>REGISTRATE!</h1>
             <label for="email"><b>Correo electrónico</b></label><br>
             <?php 
+            //pruebas
             if(isset($_POST["email"])){
                 echo $email;
             } else {
                 echo "hola";
             }?>
+
             <input type="email" placeholder="Introduce un correo electrónico" name="email" id="email"><br><br>
             <label for="password"><b>Contraseña</b></label><br>
             <input type="password" placeholder="Introduce una contraseña" size="20" id="password" name="password" onkeyup="passwordCheck()"><br><br>
