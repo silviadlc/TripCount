@@ -59,7 +59,8 @@
 			'/home.php' => '../css/home.css',
 			'/invitations.php' => '../css/invitations.css',
 			'/index.php' => '../css/landing.css',
-			'/edit.php' => '../css/edit.css'
+			'/edit.php' => '../css/edit.css',
+			'/new_payment.php' => '../css/new_payment.css'
 		);
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
