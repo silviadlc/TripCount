@@ -35,3 +35,8 @@ function deleteInput() {
 	var newInput = document.createElement("input"); 
 	form.removeChild(form.firstChild);
 }
+
+function showDetails(element) {
+	let details = document.getElementById(element);
+	details.style.display = null;
+}

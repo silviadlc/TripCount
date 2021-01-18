@@ -45,6 +45,10 @@
   justify-content: space-between;
 }
 
+#details {
+  display: none;
+}
+
 button.add {
   background: var(--MOrangeM);
   border-radius: 5px;

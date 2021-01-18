@@ -35,7 +35,7 @@ function passwordCheck(){
         </div>
 
         <form action="#" method="POST" name="regist">
-            <h1>REGISTRATE!</h1>
+            <h1>REGISTRO</h1>
             <label for="email"><b>Correo electrónico</b></label><br>
             <?php 
             //pruebas
