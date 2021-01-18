@@ -1,22 +1,37 @@
-form#editTravel {
+.addPayment {
   border: 2px solid var(--BGreyT);
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   padding: 16px;
   border-radius: 10px;
   background-color: var(--BGreyT);
   box-shadow: 2px 2px 5px var(--GBlueM);
+  margin-top: auto;
+  margin-bottom: auto;
+  display: block;
 }
 
-form#editTravel input,
-select {
-  margin-bottom: 20px;
+#multifoto {
+  border: 2px solid var(--BGreyT);
+  width: 80%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--BGreyT);
+  box-shadow: 2px 2px 5px var(--GBlueM);
+  margin-top: 10px;
 }
 
-input[type="text"],input[type="email"] {
-  width: 70%;
+.usersCheck {
+  display: inline;
+  display: none;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 60%;
   padding: 8px 20px;
-  margin: 8px 8px;
+  margin: 8px 3px;
   display: inline-block;
   border: 1px solid var(--BGreyT);
   box-sizing: border-box;
@@ -27,9 +42,10 @@ button[type="submit"] {
   background-color: var(--SOrangeM);
   color: black;
   padding: 10px 20px;
+  margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 30%;
+  width: 25%;
   border-radius: 10px;
   font-size: 14px;
   font-weight: bold;
