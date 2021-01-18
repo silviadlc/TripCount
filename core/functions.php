@@ -129,7 +129,7 @@
 			}
 
 				echo '<td><a href="#" onclick="showDetails()"><i class="fas fa-chevron-circle-down"></i>
-					<a href="edit.php"><i class="far fa-edit"></i></a>
+					<a href="edit.php?idTravel='.$row['idTravel'].'"><i class="far fa-edit"></i></a>
 					</td>
 			</tr>';
 		}
