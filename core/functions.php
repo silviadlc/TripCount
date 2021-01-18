@@ -59,7 +59,7 @@
 			'/home.php' => '../css/home.css',
 			'/invitations.php' => '../css/invitations.css',
 			'/index.php' => '../css/landing.css',
-			'/edit.php' => '../css/edit.css'
+			'/edit.php' => '../css/edit.css',
 			'/register.php' => '../css/register.css'
 		);
 
