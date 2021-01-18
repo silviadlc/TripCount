@@ -62,8 +62,7 @@
 			'/index.php' => '../css/landing.css',
 			'/edit.php' => '../css/edit.css',
 			'/register.php' => '../css/register.css',
-			'/new_payment.php' => '../css/new_payment.css'
-		);
+			'/new_payment.php' => '../css/new_payment.css');
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
 	}
@@ -135,8 +134,8 @@
 				echo '<td>No ha habido ninguna actualización</td>';
 			}
 
-				echo '<td><a href="#" onclick="showDetails("details")"><i class="fas fa-chevron-circle-down"></i>
-					<a href="edit.php"><i class="far fa-edit"></i></a>
+				echo '<td><a href="#" onclick="showDetails()"><i class="fas fa-chevron-circle-down"></i>
+					<a href="edit.php?idTravel='.$row['idTravel'].'"><i class="far fa-edit"></i></a>
 					</td>
 			</tr>';
 			
