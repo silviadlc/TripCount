@@ -15,6 +15,10 @@ p {
   margin: 0 auto;
 }
 
+#content {
+  width: 70%;
+}
+
 #multifoto {
   border: 2px solid var(--BGreyT);
   width: 80%;
@@ -56,4 +60,13 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   opacity: 0.8;
+}
+
+@media (max-width: 800px) {
+  #content {
+    width: 75%;
+  }
+  button[type="submit"] {
+    width: 35%;
+  }
 }

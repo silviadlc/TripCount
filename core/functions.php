@@ -135,8 +135,10 @@
 				echo '<td>No ha habido ninguna actualización</td>';
 			}
 
-				echo '<td><a href="#?idTravel='.$row['idTravel'].'" onclick="showDetails('.$row['idTravel'].')"><i class="fas fa-chevron-circle-down"></i>
-					<a href="edit.php?idTravel='.$row['idTravel'].'"><i class="far fa-edit"></i></a>
+				echo '<td><a href="#?idTravel='.$row['idTravel'].'" onclick="showDetails('.$row['idTravel'].')">
+					<i class="fas fa-chevron-circle-down"></i>
+					<a href="edit.php?idTravel='.$row['idTravel'].'">
+					<i class="far fa-edit"></i></a>
 					</td>
 			</tr>';
 			

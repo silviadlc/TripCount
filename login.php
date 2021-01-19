@@ -78,7 +78,7 @@
 			}?>
 				<label for="password"><b>Contraseña</b></label><br>
 				<input type="password" placeholder="Introduce contraseña" id="password" name="password"><br><br>
-				<button type="submit" name="sendLogin" accesskey="e"><underline class="accesskey">E</underline>ntrar</button>                
+				<button type="submit" name="sendLogin" accesskey="n">E<underline class="accesskey">n</underline>trar</button>                
 			</form>
 		</div>
 		
