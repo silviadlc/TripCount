@@ -18,7 +18,8 @@ label {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -28,7 +29,7 @@ input[type="password"] {
 	border-radius: 10px;
 }
 
-button {
+button,input[type="submit"] {
 	background-color: var(--SOrangeM);
 	color: black;
 	padding: 14px 20px;
