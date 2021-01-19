@@ -40,8 +40,9 @@
 			'/home.php' => 'Home - ',
 			'/invitations.php' => 'Invitaciones -',
 			'/edit.php' => 'Editar viaje - ',
-			'/register.php' => 'Registro - ',
-			'/' => '¡Bienvenid@ a TripCount!'
+			'/' => '¡Bienvenid@ a TripCount!',
+			'/index.php' => '¡Bienvenid@ a TripCount!',
+			'/register.php' => 'Registrarme - '
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
