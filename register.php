@@ -74,7 +74,7 @@
 		?>
 
         <form action="#" method="POST" autocomplete="off">
-			<h1>REGISTRATE</h1>
+			<h1>REGISTRO</h1>
 			<label for="username">
 				Nombre y apellido del usuario:<br>
 				<input id="username" name="name" type="text" placeholder="Nombre" style="width: calc(50% - 2px);" maxlength="30" required/>
@@ -92,5 +92,5 @@
 				<input id="password" name="repeatPassword" type="password" placeholder="Repite la contraseña" style="width: calc(50% - 2px);" required/>
 			</label>
 			
-            <input type="submit" name="sendRegister" id="sendRequest"/>              
+            <button type="submit" name="sendRegister" id="sendRequest" accesskey="e"><underline class="accesskey">E</underline>nviar</button>              
 		</form>
