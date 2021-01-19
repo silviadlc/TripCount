@@ -61,7 +61,7 @@
 			'/index.php' => '../css/landing.css',
 			'/edit.php' => '../css/edit.css',
 			'/register.php' => '../css/register.css',
-			'/new_payment.php' => '../css/new_payment.css'
+			'/new_payment.php' => '../css/new_payment.css');
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
 	}
