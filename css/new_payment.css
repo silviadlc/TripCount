@@ -11,6 +11,10 @@
   display: block;
 }
 
+p {
+  margin: 0 auto;
+}
+
 #multifoto {
   border: 2px solid var(--BGreyT);
   width: 80%;
@@ -22,8 +26,7 @@
   margin-top: 10px;
 }
 
-.usersCheck {
-  display: inline;
+#usersCheck {
   display: none;
 }
 

@@ -135,12 +135,12 @@
 				echo '<td>No ha habido ninguna actualización</td>';
 			}
 
-				echo '<td><a href="#" onclick="showDetails()"><i class="fas fa-chevron-circle-down"></i>
+				echo '<td><a href="#?idTravel='.$row['idTravel'].'" onclick="showDetails('.$row['idTravel'].')"><i class="fas fa-chevron-circle-down"></i>
 					<a href="edit.php?idTravel='.$row['idTravel'].'"><i class="far fa-edit"></i></a>
 					</td>
 			</tr>';
 			
-				echo '<tr id="details" class="'.$row['idTravel'].'">
+				echo '<tr class="details details'.$row['idTravel'].'">
 					<td></td>
 					<td>Fecha: '.$row['created'].'</td>
 					<td>Total gastos: '.$amount.'</td>

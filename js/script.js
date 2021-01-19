@@ -36,7 +36,18 @@ function deleteInput() {
 	form.removeChild(form.firstChild);
 }
 
-function showDetails(element) {
-	let details = document.getElementById(element);
-	details.style.display = null;
-}
+function showDetails(id) {
+	addClass = "details"+id;
+	row = document.getElementsByClassName(addClass);
+	if (row[0].style.display != 'table-row') {
+	   for (let index = 0; index < row.length; index++) {
+		  const detail = row[index];
+		  detail.style.display = 'table-row';
+	   }
+	} else {
+	   for (let index = 0; index < row.length; index++) {
+		  const detail = row[index];
+		  detail.style.display = 'none';
+	   }
+	}
+ } 

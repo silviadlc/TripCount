@@ -13,6 +13,7 @@
 <div id="content">
     <h1 class="content-title">Introducir pago</h1>
     <div class="addPayment">
+    <p class="destiny">Viaje: <b><?php $travelContent['name'];?></b></p>
         <form id="payment" method="post" autocomplete="off">
             <label for="amount">
                 Cantidad del pago:
@@ -21,18 +22,23 @@
             <label for="travelUsers">
                 Usuario que ha pagado:
                 <select id="paymentUser" name="paymentUser">
-                    <option selected disabled></option>
+                <?php
+                    foreach ($_SESSION['users']['username'] as $user_data) {
+                        list($id, $user) = explode(" - ", $user_data);
+                        echo "<option name='$id'>$user</option>";
+                    }
+                ?>     
                 </select><br>
             </label>
-            <div class="usersCheck">
+            <div id="usersCheck">
                 <h3>Pago avanzado</h3>
                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                 <label for="vehicle1">"usuario"</label>
                 <input type="number" id="payment1" name="payment1" placeholder="Cantidad a pagar">
                 <label for="payment1" id="euro">€</label>
             </div><br>
-            <button type="submit" name="advanced" accesskey="p"/><underline class="accesskey">P</underline>ago avanzado</button>
-            <button type="submit" name="savePayment" accesskey="g"/><underline class="accesskey">G</underline>uardar pago</button>     
+            <button type="submit" name="advanced" accesskey="p" onclick="showFormCustom('usersCheck');"><underline class="accesskey">P</underline>ago avanzado</button>
+            <button type="submit" name="savePayment" accesskey="g"><underline class="accesskey">G</underline>uardar pago</button>     
         </form>
     </div>
     <form id="multifoto" method="post" action="new_payment.php" enctype="multipart/form-data">
