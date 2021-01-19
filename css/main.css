@@ -135,7 +135,6 @@ a:link {
 
 #content {
   margin: 0 auto;
-  width: 70%;
 }
 
 .content-title {
@@ -180,7 +179,7 @@ a:link {
 }
 
 .icon #close i {
-	font-size: 18px;
+  font-size: 18px;
 }
 
 .alert.danger {

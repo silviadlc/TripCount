@@ -145,12 +145,12 @@
 					<td>Fecha: '.$row['created'].'</td>
 					<td>Total gastos: '.$amount.'</td>
 					<td></td>
-					<td><a href="balance.php">
-					<button class="balance" accesskey="b"><underline class="accesskey">B</underline>alance</button></a></td>
-					<td><a href="balance.php">
-					<button class="manageUsers" accesskey="g"><underline class="accesskey">G</underline>estionar usuarios</button></a></td>
 					<td><a href="new_payment.php">
 					<button class="addExpenses" accesskey="a"><underline class="accesskey">A</underline>ñadir gasto</button></td>
+					<td><a href="#">
+					<button class="manageUsers" accesskey="g"><underline class="accesskey">G</underline>estionar usuarios</button></a></td>
+					<td><a href="balance.php">
+					<button class="balance" accesskey="b"><underline class="accesskey">B</underline>alance</button></a></td>
 				</tr>';
 		}
 	}

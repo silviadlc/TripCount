@@ -144,14 +144,12 @@ button[type="submit"]:hover {
 
 @media (max-width: 800px) {
   .travels {
-    width: 100%;
+    width: 85%;
   }
   form#createTravel {
-    width: 100%;
+    width: 85%;
   }
-  #content {
-    width: 80%;
-  }
+
   button[type="submit"] {
     width: 30%;
   }
