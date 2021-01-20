@@ -2,7 +2,7 @@
 		require $_SERVER["DOCUMENT_ROOT"].'/includes/header.php';
 	?>
 
-		<div id="breadcrumb"
+		<div id="breadcrumb">
 			<ul class="breadcrumb">
 			<li><a href="home.php">Home</a></li>
 			<li><a href="invitations.php">Invitaciones</a></li>
