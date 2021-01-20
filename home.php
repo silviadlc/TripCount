@@ -1,5 +1,5 @@
 <?php include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php' ?>
-<div id="breadcrumb"
+<div id="breadcrumb">
 	<ul class="breadcrumb">
 	<li><a href="home.php">Home</a></li>
 	</ul>
