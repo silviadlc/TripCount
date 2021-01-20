@@ -146,7 +146,7 @@
 					$sql = $conn->query('SELECT email FROM users INNER JOIN travels_users ON users.idUsername = travels_users.idUsername AND travels_users.idTravel = "'.$travelContent['idTravel'].'"');
 					if($sql->rowCount() != 0) {
 						while($row = $sql->fetch()) {
-							echo '<input id="inputEmail" type="text" value="'.$row['email'].'" readonly>';
+							echo '<input id="inputEmail" type="email" value="'.$row['email'].'" readonly>';
 						}
 					}
 				?>

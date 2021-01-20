@@ -137,11 +137,11 @@
 				<label for="userEmail"><b>Correos electrónicos</b></label><br><br>
 				<div id="newEmailList">
 					<input id="inputEmail" name="emailsList[]" type="email" placeholder="Introduce un correo electrónico" required>
-					<i id="addInput" class="fas fa-plus-square" onclick="addInput()"></i>
-					<i id="deleteInput" class="fas fa-minus-square" onclick="deleteInput()"></i>
+					<i id="addInput" class="fas fa-plus-square" onclick="addInput()" accesskey="+"></i>
+					<i id="deleteInput" class="fas fa-minus-square" onclick="deleteInput()" accesskey="-"></i>
 				</div>
 				<div id="btn">
-					<button class="submit" type="submit" name="sendInvitations" accesskey="e"><underline class="accesskey">E</underline>nviar</button>
+					<button class="submit" type="submit" name="sendInvitations" accesskey="n">E<underline class="accesskey">n</underline>viar</button>
 				</div> 
             </form>
         </div>

@@ -40,7 +40,9 @@
 			'/home.php' => 'Home - ',
 			'/invitations.php' => 'Invitaciones -',
 			'/edit.php' => 'Editar viaje - ',
-			'/' => '¡Bienvenid@ a TripCount!'
+			'/' => '¡Bienvenid@ a TripCount!',
+			'/index.php' => '¡Bienvenid@ a TripCount!',
+			'/register.php' => 'Registrarme - '
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -111,8 +113,14 @@
 				die('Debes de seguir los valores estipulados del select.');
 				break;
 		}
-		
 		while ($row = $travelsToShow->fetch()) {
+			$expenses = $conn->query('SELECT * FROM expenses WHERE idTravel='.$row['idTravel']);
+			$amount = 0;
+
+			while ($fields = $expenses->fetch()) {
+				$amount = $amount + $fields['amount'];
+			}
+			
 			echo '
 			<tr>
 				<td>'.$row['idTravel'].'</td>
@@ -127,12 +135,26 @@
 				echo '<td>No ha habido ninguna actualización</td>';
 			}
 
-				echo '<td><a href="#" onclick="showDetails()"><i class="fas fa-chevron-circle-down"></i>
-					<a href="edit.php?idTravel='.$row['idTravel'].'"><i class="far fa-edit"></i></a>
+				echo '<td><a href="#?idTravel='.$row['idTravel'].'" onclick="showDetails('.$row['idTravel'].')">
+					<i class="fas fa-chevron-circle-down"></i>
+					<a href="edit.php?idTravel='.$row['idTravel'].'">
+					<i class="far fa-edit"></i></a>
 					</td>
 			</tr>';
+			
+				echo '<tr class="details details'.$row['idTravel'].'">
+					<td></td>
+					<td>Fecha: '.$row['created'].'</td>
+					<td>Total gastos: '.$amount.'</td>
+					<td></td>
+					<td><a href="new_payment.php">
+					<button class="addExpenses" accesskey="a"><underline class="accesskey">A</underline>ñadir gasto</button></td>
+					<td><a href="#">
+					<button class="manageUsers" accesskey="g"><underline class="accesskey">G</underline>estionar usuarios</button></a></td>
+					<td><a href="balance.php">
+					<button class="balance" accesskey="b"><underline class="accesskey">B</underline>alance</button></a></td>
+				</tr>';
 		}
-
 	}
 
 	function optionSelectedByGet($getValue, $getCompared) {
