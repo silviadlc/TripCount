@@ -1,9 +1,29 @@
 <?php include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php'; 
+   	if(!isset($_GET['idTravel']) || empty($_GET['idTravel'])) {
+        die(showAlert('danger', 'Se te ha denegado el acceso.'));
+    } else {
+        if(!is_numeric($_GET['idTravel'])) {
+            die(showAlert('danger', 'La ID del viaje esta formateada incorrectamente.'));
+        } else if(is_numeric($_GET['idTravel'])) {
+            $sql = $conn->prepare('SELECT * FROM travels WHERE idTravel = ?');
+            $sql->bindParam(1, $_GET['idTravel']); $sql->execute();
+
+            if($sql->rowCount() != 0) {
+				// Si el viaje existe, realiza un fetch donde añadirá en una variable toda la información sobre el viaje.
+                $travelContent = $sql->fetch();
+            } else {
+                die(showAlert('danger', 'La ID no concuerda con ningún viaje.'));
+            }
+        } else {
+            die(showAlert('danger', 'Error desconocido.'));
+        }
+    }
 ?>
 
 <div id="breadcrumb">
 	<ul class="breadcrumb">
     <li><a href="home.php">Home</a></li>
+	<li><a href="#"><?php echo $travelContent['name']; ?></a></li>
     <li><a href="new_payment.php">Pagos</a></li>
 	</ul>
 </div>
@@ -13,7 +33,7 @@
 <div id="content">
     <h1 class="content-title">Introducir pago</h1>
     <div class="addPayment">
-    <p class="destiny">Viaje: <b><?php $travelContent['name'];?></b></p>
+    <p class="destiny">Viaje: <b><?php echo $travelContent['name']; ?></b></p>
         <form id="payment" method="post" autocomplete="off">
             <label for="amount">
                 Cantidad del pago:
