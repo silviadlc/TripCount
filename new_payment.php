@@ -71,12 +71,10 @@
                     $sql = $conn->prepare('SELECT "user.idUsername", "user.name", "user.lastName" from users user, travels_users trusers where "trusers.idUsername" = "user.idUsername" and idTravel ="'.$_GET['idTravel'].'"');
                     $rows = $sql->fetchAll(PDO::FETCH_ASSOC);
                     $i=0;
-                    var_dump($rows);
-                    /*foreach ($rows as $row) {
+                    foreach ($rows as $row) {
                         $i=$i+1;
-                        echo "<option id='".$row["idUsername"]."'>".$row["name"].$row["lastName"]."</option>";
-
-                    }*/
+                        echo "<option id='".$row["idUsername"]."'value='".$row["name"].$row["lastName"]."'></option>";
+                    }
                 ?>     
                 </select><br>
             </label>
