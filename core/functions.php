@@ -114,11 +114,11 @@
 				break;
 		}
 		while ($row = $travelsToShow->fetch()) {
-			$expenses = $conn->query('SELECT * FROM expenses WHERE idTravel='.$row['idTravel']);
+			$expenses = $conn->query('SELECT * FROM expenses WHERE idTravel="'.$row['idTravel'].'"');
 			$amount = 0;
-
 			while ($fields = $expenses->fetch()) {
 				$amount = $amount + $fields['amount'];
+				$reason = $fields['reason'];
 			}
 			
 			echo '
@@ -153,6 +153,11 @@
 					<button class="manageUsers" accesskey="g"><underline class="accesskey">G</underline>estionar usuarios</button></a></td>
 					<td><a href="balance.php">
 					<button class="balance" accesskey="b"><underline class="accesskey">B</underline>alance</button></a></td>
+					<tr>
+						<ul>
+							<li>Concepto: '.$reason , $fields['amount'].'</li>
+						</ul>
+					</tr>
 				</tr>';
 		}
 	}
