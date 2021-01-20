@@ -53,6 +53,7 @@
 				$sql2 = $conn->query('INSERT INTO travels_users SET idUsername = '.$localUser['idUsername'].', idTravel = "'.$lastIdForTravel.'"');
 
 				if($sql && $sql2) {
+					$_SESSION['alerts'][] = array('type' => 'info', 'message' => 'Se ha creado correctamente el viaje.');
 					header('Location: /invitations.php?idTravel='.$lastIdForTravel);
 					exit;
 				}
