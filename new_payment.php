@@ -17,6 +17,33 @@
         } else {
             die(showAlert('danger', 'Error desconocido.'));
         }
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savePayment'])) {
+           
+            $data['idExpense'] = filter_var($_POST[''], FILTER_SANITIZE_NUMBER_INT);
+            $data['idTravel'] = filter_var($_GET['idTravel'], FILTER_SANITIZE_NUMBER_INT);
+            $data['travelDescription'] = filter_var($_POST['travelDescription'], FILTER_SANITIZE_STRING);
+            $data['travelCurrency'] = filter_var($_POST['travelCurrency'], FILTER_SANITIZE_STRING);
+                $sql = $conn->prepare('INSERT INTO expenses SET 
+                    idExpense = ?,
+                    idUsername = ?,
+                    idTravel = ?,
+                    reason = ?,
+                    amount = ?,
+                    created = ?
+                ');
+
+                $sql->bindParam(1, $data['idExpense']);
+                $sql->bindParam(2, $localUser['idUsername']);
+                $sql->bindParam(3, $data['idTravel']);
+                $sql->bindParam(4, $data['travelDescription']);
+                $sql->bindParam(5, $data['travelCurrency']);
+                $sql->execute();
+
+                $lastIdForTravel = $conn->lastInsertId();
+
+                }
+            }
+        }
     }
 ?>
 

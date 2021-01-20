@@ -147,7 +147,7 @@
 					<td>Fecha: '.$row['created'].'</td>
 					<td>Total gastos: '.$amount.'</td>
 					<td></td>
-					<td><a href="new_payment.php">
+					<td><a href="new_payment.php?idTravel='.$row['idTravel'].'">
 					<button class="addExpenses" accesskey="a"><underline class="accesskey">A</underline>ñadir gasto</button></td>
 					<td><a href="#">
 					<button class="manageUsers" accesskey="g"><underline class="accesskey">G</underline>estionar usuarios</button></a></td>
