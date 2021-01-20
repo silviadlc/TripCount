@@ -153,11 +153,11 @@
 					<button class="manageUsers" accesskey="g"><underline class="accesskey">G</underline>estionar usuarios</button></a></td>
 					<td><a href="balance.php">
 					<button class="balance" accesskey="b"><underline class="accesskey">B</underline>alance</button></a></td>
-					<tr>
+					<tr><td>
 						<ul>
-							<li>Concepto: '.$reason , $fields['amount'].'</li>
+							<li>Concepto: '.$reason/* , $fields['amount']. */'</li>
 						</ul>
-					</tr>
+					</td></tr>
 				</tr>';
 		}
 	}
