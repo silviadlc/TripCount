@@ -6,11 +6,11 @@
             die(showAlert('danger', 'La ID del viaje esta formateada incorrectamente.'));
         } else if(is_numeric($_GET['idTravel'])) {
             $sql = $conn->prepare('SELECT * FROM travels WHERE idTravel = ?');
-            $sql->bindParam(1, $_GET['idTravel']); $sql->execute();
+			$sql->bindParam(1, $_GET['idTravel']); $sql->execute();
 
             if($sql->rowCount() != 0) {
 				// Si el viaje existe, realiza un fetch donde añadirá en una variable toda la información sobre el viaje.
-                $travelContent = $sql->fetch();
+				$travelContent = $sql->fetch();
             } else {
                 die(showAlert('danger', 'La ID no concuerda con ningún viaje.'));
             }
@@ -88,10 +88,48 @@
             <button type="submit" name="savePayment" accesskey="g"><underline class="accesskey">G</underline>uardar pago</button>     
         </form>
     </div>
-    <form id="multifoto" method="post" action="new_payment.php" enctype="multipart/form-data">
+	<?php
+		if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['uploadFileToPayment'])) {
+			$_FILES['filesInput'] = reArrayFiles($_FILES['filesInput']);
+			foreach($_FILES['filesInput'] as $file) {
+				$continueToUpload = true;
+				$targetFile = 'media/bills/' . basename($file['name']);
+				$imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+				if($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' && $imageFileType != 'pdf') {
+					$alertsLocal[] = '[Archivo '.htmlspecialchars($file['name']).'] Solo se permite las extensiones jpg, jpeg, png y pdf para subir.';
+					$continueToUpload = false;
+				}
+
+				if ($file["size"] > 500000) {
+					$alertsLocal[] = '[Archivo '.htmlspecialchars($file['name']).'] El archivo es muy grande para poder subirlo.';
+					$continueToUpload = false;
+				}
+
+				if($continueToUpload) {
+					
+					if(move_uploaded_file($file['tmp_name'], $targetFile)) {
+						$uploadFileSql = $conn->prepare('INSERT INTO pictures SET idUsername = ?, idExpense = ?, url = ?');
+						$uploadFileSql->bindParam(1, $localUser['idUsername']);
+						$uploadFileSql->bindParam(2, $travelContent['idTravel']);
+						$uploadFileSql->bindParam(3, $targetFile);
+
+						if($uploadFileSql->execute()) {
+							echo 'ok';
+						}
+					}
+				}
+			}
+
+			if(@$alertsLocal) {
+				showAlert('danger-m', 'No ha sido posible la subida de algunos archivos.', $alertsLocal);
+			}
+		}
+	?>
+    <form id="multifoto" method="post" action="#" enctype="multipart/form-data">
         <label>Añadir factura/s: </label>
-        <input type="file" id="files[]" name="files[]" multiple=""><br>
-        <button type="submit" accesskey="s"><underline class="accesskey">S</underline>ubir archivos</button>
+        <input type="file" id="files" name="filesInput[]" multiple><br>
+        <button name="uploadFileToPayment" type="submit" accesskey="s"><underline class="accesskey">S</underline>ubir archivos</button>
     </form>
 </div>
 <?php include $_SERVER["DOCUMENT_ROOT"].'/includes/footer.php' ?>
