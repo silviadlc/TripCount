@@ -1,10 +1,32 @@
 	<?php 
 		require $_SERVER["DOCUMENT_ROOT"].'/includes/header.php';
+		if(!isset($_GET['idTravel']) || empty($_GET['idTravel'])) {
+			die(showAlert('danger', 'No puedes acceder: Debes de ser dueño de un viaje para invitarlos.'));
+		} else {
+			if(!is_numeric($_GET['idTravel'])) {
+				die(showAlert('danger', 'La ID del viaje esta formateada incorrectamente.'));
+			} else if(is_numeric($_GET['idTravel'])) {
+				$sql = $conn->prepare('SELECT * FROM travels WHERE idTravel = ?');
+				$sql->bindParam(1, $_GET['idTravel']); $sql->execute();
+
+				if($sql->rowCount() != 0) {
+					$travelContent = $sql->fetch();
+					if($travelContent['idUsername'] != $localUser['idUsername']) {
+						die(showAlert('danger', 'No eres el dueño de este viaje y no puedes invitar.'));
+					} 
+				} else {
+					die(showAlert('danger', 'La ID no concuerda con ningún viaje.'));
+				}
+			} else {
+				die(showAlert('danger', 'Error desconocido.'));
+			}
+		}
 	?>
 
-		<div id="breadcrumb"
+		<div id="breadcrumb">
 			<ul class="breadcrumb">
 			<li><a href="home.php">Home</a></li>
+			<li><a href="#"><?php echo $travelContent['name']; ?></a></li>
 			<li><a href="invitations.php">Invitaciones</a></li>
 			</ul>
 		</div>
@@ -29,28 +51,6 @@
 		<!-- /alert-content -->
 
 	<?php
-		if(!isset($_GET['idTravel']) || empty($_GET['idTravel'])) {
-			die(showAlert('danger', 'No puedes acceder: Debes de ser dueño de un viaje para invitarlos.'));
-		} else {
-			if(!is_numeric($_GET['idTravel'])) {
-				die(showAlert('danger', 'La ID del viaje esta formateada incorrectamente.'));
-			} else if(is_numeric($_GET['idTravel'])) {
-				$sql = $conn->prepare('SELECT * FROM travels WHERE idTravel = ?');
-				$sql->bindParam(1, $_GET['idTravel']); $sql->execute();
-
-				if($sql->rowCount() != 0) {
-					$travelContent = $sql->fetch();
-					if($travelContent['idUsername'] != $localUser['idUsername']) {
-						die(showAlert('danger', 'No eres el dueño de este viaje y no puedes invitar.'));
-					} 
-				} else {
-					die(showAlert('danger', 'La ID no concuerda con ningún viaje.'));
-				}
-			} else {
-				die(showAlert('danger', 'Error desconocido.'));
-			}
-		}
-
 		if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sendInvitations'])) {
 			foreach($_POST['emailsList'] as $email) {
 				$email = filter_var($email, FILTER_SANITIZE_EMAIL);

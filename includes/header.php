@@ -20,7 +20,7 @@
 		} ?>
 		</div>
 		<div id="home">
-			<a href="./home.php" class="home">
+			<a href="./index.php" class="home">
 	  			<i class="fas fa-home" accesskey="h"></i>
 			</a>
 			<?php

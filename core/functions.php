@@ -42,7 +42,8 @@
 			'/edit.php' => 'Editar viaje - ',
 			'/' => '¡Bienvenid@ a TripCount!',
 			'/index.php' => '¡Bienvenid@ a TripCount!',
-			'/register.php' => 'Registrarme - '
+			'/register.php' => 'Registrarme - ',
+			'/new_payment.php' => 'Nuevo pagamento -'
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -63,7 +64,8 @@
 			'/index.php' => '../css/landing.css',
 			'/edit.php' => '../css/edit.css',
 			'/register.php' => '../css/register.css',
-			'/new_payment.php' => '../css/new_payment.css');
+			'/new_payment.php' => '../css/new_payment.css'
+		);
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
 	}
@@ -78,7 +80,10 @@
 			'/home.php' => '1',
 			'/login.php' => '0',
 			'/completeInvitation.php' => '1',
-			'/index.php' => '1'
+			'/index.php' => '0',
+			'/register.php' => '0',
+			'/new_payment.php' => '0',
+			'/' => '0'
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {

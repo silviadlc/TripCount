@@ -83,7 +83,7 @@
 
 			<label for="email">
 				Correo electrónico:
-				<input id="email" name="email" type="email" placeholder="Correo electrónico" maxlength="40" required/> 
+				<input id="email" name="email" type="email" placeholder="Correo electrónico" maxlength="40" value="<?php echo $emailRegisterForInvitation = !empty($_GET['inv']) ? $_GET['inv'] : ''; ?>" required/> 
 			</label>
 
 			<label for="password">
