@@ -9,15 +9,91 @@
   --BGreyT: #dedede;
   --GBlueM: #393b82;
   --DBlueM: #01068c;
+  --WhiteT: #eeeeee;
+  --WhiteB: #ffffff;
 }
 
 html,
 body {
-  margin: 0px;
-  height: 100%;
   font-family: "Londrina Solid";
   background-image: url(../media/background_body.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
+  height: 100%;
+}
+
+.breadcrumb {
+  list-style: none;
+  overflow: hidden;
+  font-size: 16px;
+  margin: 20px;
+  padding: 0;
+}
+.breadcrumb li {
+  float: left;
+  background: var(--WhiteB);
+}
+.breadcrumb li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0 10px 55px;
+  background: var(--MOrangeM); /* fallback color */
+  background: var(--SOrangeM);
+  position: relative;
+  display: block;
+  float: left;
+}
+.breadcrumb li a:after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid var(--SOrangeM);
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  left: 100%;
+  z-index: 2;
+}
+.breadcrumb li a:before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid var(--WhiteB);
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 1;
+}
+.breadcrumb li:first-child a {
+  padding-left: 10px;
+}
+.breadcrumb li:last-child a {
+  background: transparent !important;
+  color: black;
+  pointer-events: none;
+  cursor: default;
+}
+.breadcrumb li:last-child a:after {
+  border: 0;
+}
+.breadcrumb li a:hover {
+  background: var(--MYellowT);
+}
+.breadcrumb li a:hover:after {
+  border-left-color: var(--MYellowT) !important;
+}
+
+underline {
+  text-decoration: underline;
 }
 
 .header {
@@ -25,7 +101,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  border-radius: 4px;
   background-color: var(--DBlueM);
   border: 1px solid var(--DBlueM);
   color: var(--MYellowT);
@@ -35,10 +110,18 @@ body {
   height: 11%;
 }
 
-.house {
-  height: 30px;
-  width: 30px;
-  color: var(--GBlueT);
+#home {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.home {
+  font-size: 40px;
+  color: white;
+}
+
+.user {
+  font-size: 20px;
 }
 
 a:link {
@@ -47,11 +130,11 @@ a:link {
 
 .logo {
   text-align: center;
+  margin-top: -20px;
 }
 
 #content {
   margin: 0 auto;
-  width: 70%;
 }
 
 .content-title {
@@ -95,9 +178,17 @@ a:link {
   font-weight: 900;
 }
 
+.icon #close i {
+  font-size: 18px;
+}
+
 .alert.danger {
   background: #fff5f4;
   border: 1px solid #f68b8b;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .danger > .icon {
@@ -172,13 +263,25 @@ a:link {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 4px;
   background-color: var(--MOrangeM);
   border: 1px solid var(--MOrangeM);
   color: var(--BGreyT);
   text-decoration: none;
   overflow: hidden;
-  height: 11%;
-  padding: 1%;
-  margin-top: 370px;
+  margin-top: 108px;
+  clear: both;
+}
+
+.footer img {
+  padding-left: 20px;
+}
+
+.footer p {
+  padding-right: 30px;
+}
+
+@media (max-width: 900px) {
+  .home {
+    font-size: 35px;
+  }
 }

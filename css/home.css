@@ -1,5 +1,43 @@
+.content-title {
+  font-weight: bold;
+}
+
+.travels {
+  border: 2px solid var(--BGreyT);
+  width: 80%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--BGreyT);
+  box-shadow: 2px 2px 5px var(--GBlueM);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .travels table {
   margin-top: 20px;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.travels th {
+  padding: 10px 15px;
+}
+
+.travels td {
+  padding: 10px 15px;
+}
+
+.travels td a {
+  color: black;
+}
+
+.travels tr:nth-of-type(even) {
+  background-color: var(--WhiteT);
 }
 
 #controlsTravel {
@@ -7,12 +45,21 @@
   justify-content: space-between;
 }
 
+.details {
+  display: none;
+}
+
 button.add {
   background: var(--MOrangeM);
   border-radius: 5px;
-  color: white;
+  color: var(--WhiteB);
   font-weight: bold;
   cursor: pointer;
+  font-size: 15px;
+}
+
+button.add:hover {
+  opacity: 0.8;
 }
 
 #controlsTravel:last-of-type {
@@ -20,7 +67,13 @@ button.add {
 }
 
 form#createTravel {
-  margin: 20px 0px 20px 0px;
+  border: 2px solid var(--BGreyT);
+  width: 80%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--BGreyT);
+  box-shadow: 2px 2px 5px var(--GBlueM);
 }
 
 form#createTravel fieldset label {
@@ -37,4 +90,71 @@ form#createTravel fieldset #travelDescription {
 
 form#createTravel {
   display: none;
+}
+
+form#createTravel input,
+select {
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid var(--BGreyT);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+#controlsTravel form {
+  width: 40%;
+  height: 90%;
+}
+
+select#orderTravels {
+  font-size: 14px;
+  border-radius: 4px;
+  width: 75%;
+  height: 70%;
+}
+
+select#travelCurrency {
+  font-size: 14px;
+  border-radius: 4px;
+  height: 95%;
+}
+
+button[type="submit"] {
+  background-color: var(--SOrangeM);
+  color: black;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 800px) {
+  .travels {
+    width: 85%;
+  }
+  form#createTravel {
+    width: 85%;
+  }
+
+  button[type="submit"] {
+    width: 30%;
+  }
+  #controlsTravel form {
+    width: 50%;
+    height: 50%;
+  }
 }

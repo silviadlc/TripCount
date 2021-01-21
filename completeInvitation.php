@@ -11,11 +11,14 @@
 				$_SESSION['alerts'][] = array('type' => 'success', 'message' => 'Has confirmado la invitación exitosamente.');
 				header('Location: /home.php');
 			} else {
-				die('Sin permisos.');
+				$_SESSION['alerts'][] = array('type' => 'danger', 'message' => 'La invitación a confirmar no concuerda con tus datos.');
+				header('Location: /login.php');
 			}
 		} else {
-			die('Sin permisos.');
+			$_SESSION['alerts'][] = array('type' => 'danger', 'message' => 'Ninguna invitación encontrada.');
+			header('Location: /login.php');
 		}
 	} else {
-		die('Sin permisos.');
+		$_SESSION['alerts'][] = array('type' => 'danger', 'message' => 'Error a la hora de ejecutar la confirmación de la invitación.');
+		header('Location: /login.php');
 	}

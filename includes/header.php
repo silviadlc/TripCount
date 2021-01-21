@@ -15,12 +15,23 @@
 	</head>
 	<header>
 	<div class="header">
-		<div><?php if(isset($_SESSION['userLogged'])){
+		<div class="user"><?php if(isset($_SESSION['userLogged'])){
 			echo getUsernameById($localUser['idUsername']);
 		} ?>
 		</div>
-		<div><a href="./home.php" class="home"><span style="font-size: 40px; color:white;">
-	  <i class="fas fa-home"></i>
-	</span></a></div>
+		<div id="home">
+			<a href="./index.php" class="home">
+	  			<i class="fas fa-home" accesskey="h"></i>
+			</a>
+			<?php
+				if(isset($_SESSION['userLogged']) && !empty($_SESSION['userLogged'])) {
+			?>
+			<a href="/logout.php" class="home" style="margin-left: 20px;">
+				<i class="fas fa-sign-out-alt"></i>
+			</a>
+			<?php
+				}
+			?>
+		</div>
 	</header>
-	<body>
+	<body id="cover">

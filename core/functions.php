@@ -19,6 +19,18 @@
 		return $userLocal['name'];
 	}
 
+	function usernameExistsByEmail($stringToFilter) {
+		global $conn;
+		$stringToFilter = filter_var($stringToFilter, FILTER_SANITIZE_STRING);
+		$sql = $conn->query("SELECT idUsername FROM users WHERE email = '$stringToFilter'");
+
+		if($sql->rowCount() == 1) {
+			return true;
+		}
+
+		return false;
+	}
+
 	function getTitleDocument() {
 		/**
 		 * Esta función lo que realizará es obtener el título y evitar se tenga que realizar siempre un TITLE.
@@ -27,7 +39,11 @@
 			'/login.php' => 'Iniciar sesión - ',
 			'/home.php' => 'Home - ',
 			'/invitations.php' => 'Invitaciones -',
-			'/index.php' => '¡Bienvenido! - '
+			'/edit.php' => 'Editar viaje - ',
+			'/' => '¡Bienvenid@ a TripCount!',
+			'/index.php' => '¡Bienvenid@ a TripCount!',
+			'/register.php' => 'Registrarme - ',
+			'/new_payment.php' => 'Nuevo pagamento -'
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -45,7 +61,10 @@
 			'/login.php' => '../css/login.css',
 			'/home.php' => '../css/home.css',
 			'/invitations.php' => '../css/invitations.css',
-			'/index.php' => '../css/landing.css'
+			'/index.php' => '../css/landing.css',
+			'/edit.php' => '../css/edit.css',
+			'/register.php' => '../css/register.css',
+			'/new_payment.php' => '../css/new_payment.css'
 		);
 
 		return $config[parse_url($_SERVER['REQUEST_URI'])['path']];
@@ -61,7 +80,10 @@
 			'/home.php' => '1',
 			'/login.php' => '0',
 			'/completeInvitation.php' => '1',
-			'/index.php' => '1'
+			'/index.php' => '0',
+			'/register.php' => '0',
+			'/new_payment.php' => '0',
+			'/' => '0'
 		);
 
 		if(isset($config[parse_url($_SERVER['REQUEST_URI'])['path']])) {
@@ -96,17 +118,48 @@
 				die('Debes de seguir los valores estipulados del select.');
 				break;
 		}
-		
 		while ($row = $travelsToShow->fetch()) {
+			$expenses = $conn->query('SELECT * FROM expenses WHERE idTravel='.$row['idTravel']);
+			$amount = 0;
+
+			while ($fields = $expenses->fetch()) {
+				$amount = $amount + $fields['amount'];
+			}
+			
 			echo '
 			<tr>
 				<td>'.$row['idTravel'].'</td>
 				<td>'.$row['name'].'</td>
 				<td>'.$row['description'].'</td>
 				<td>'.getNameCurrency($row['currency']).'</td>
-			</tr>';
-		}
+				<td>Hace '.timeAgo($row['created']).'</td>';
+				
+			if(!empty($row['updated'])) {
+				echo '<td>Actualizado hace '.timeAgo($row['updated']).'</td>';
+			} else {
+				echo '<td>No ha habido ninguna actualización</td>';
+			}
 
+				echo '<td><a href="#?idTravel='.$row['idTravel'].'" onclick="showDetails('.$row['idTravel'].')">
+					<i class="fas fa-chevron-circle-down"></i>
+					<a href="edit.php?idTravel='.$row['idTravel'].'">
+					<i class="far fa-edit"></i></a>
+					</td>
+			</tr>';
+			
+				echo '<tr class="details details'.$row['idTravel'].'">
+					<td></td>
+					<td>Fecha: '.$row['created'].'</td>
+					<td>Total gastos: '.$amount.'</td>
+					<td></td>
+					<td><a href="new_payment.php?idTravel='.$row['idTravel'].'">
+					<button class="addExpenses" accesskey="a"><underline class="accesskey">A</underline>ñadir gasto</button></td>
+					<td><a href="#">
+					<button class="manageUsers" accesskey="g"><underline class="accesskey">G</underline>estionar usuarios</button></a></td>
+					<td><a href="balance.php">
+					<button class="balance" accesskey="b"><underline class="accesskey">B</underline>alance</button></a></td>
+				</tr>';
+		}
 	}
 
 	function optionSelectedByGet($getValue, $getCompared) {
@@ -126,7 +179,7 @@
         if ($type == 'info'){
 			echo '
 		<div class="alert info">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close">?</span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">Información</h2>
 				<p>'.$message.'</p>
@@ -135,7 +188,7 @@
         } elseif ($type == 'danger') {
 			echo '
 		<div class="alert danger">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close">X</span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">¡Parece que ha habido un problema!</h2>
 				<p>'.$message.'</p>
@@ -144,7 +197,7 @@
 		} elseif ($type == 'danger-m') {
 			echo '
 		<div class="alert danger">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close"></span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">¡Parece que ha habido un problema!</h2>
 				<p>'.$message.'</p>
@@ -159,7 +212,7 @@
         } elseif ($type == 'success') {
 			echo '
 		<div class="alert success">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close">X</span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">¡Éxito!</h2>
 				<p>'.$message.'</p>
@@ -168,7 +221,7 @@
         } elseif ($type == 'warning') {
 			echo '
 		<div class="alert warning">
-			<div class="icon" onclick="closeAlert(this)"><span id="close">&times;</span></div>
+			<div class="icon" onclick="closeAlert(this)"><span id="close">X</span></div>
 			<div class="alert-content">
 				<h2 class="alert-title">Aviso</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet lacus et tortor placerat mollis. Nam sapien mauris, rhoncus sit amet dapibus nec, convallis et metus. Praesent ut maximus sem.</p>
@@ -234,16 +287,38 @@
 		//Set the subject line
 		$mail->Subject = $subject;
 		$mail->Body = '
-		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-		<html lang="es">
-			<head>
-				<meta charset="utf-8">
-			</head>
-			<body>
-				<img src="https://i.imgur.com/BW5u54f.png" />
-				'.$body.'
-			</body>
-		</html>';
+		<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td rowspan="3" style="width: calc(100-300px); padding: 10px;"></td>
+				<td style="height: 100px; color: #FFF; width: 600px; padding: 10px;box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.75);" align="center" bgcolor="#01068C">
+					<h1>Tripcount</h1>
+				</td>
+				<td rowspan="3" style="width: calc(100-300px); padding: 10px;"></td>
+			</tr>
+			<tr style="background: url(https://i.imgur.com/vwWRCP.png); background-size: cover;">
+				<td style="padding: 10px;box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.75);">
+					'.$body.'
+				</td>
+			</tr>
+			<tr>
+				<td style="color: #FFF; padding: 10px;box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.75);" bgcolor="#CB5A04">
+					<div>
+						<em>Este mensaje ha sido enviado automáticamente.</em>
+						<div style="float: right;">
+							2020-'.date('Y').' © Equipo T
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>';
 		$mail->IsHTML(true);
 		$mail->CharSet = 'UTF-8';
 		//Read an HTML message body from an external file, convert referenced images to embedded,
@@ -260,4 +335,49 @@
 		} else {
 			return true;
 		}
+	}
+	
+	function timeAgo($since) {
+		$since = time() - strtotime($since);
+
+		$chunks = array(
+			array(60 * 60 * 24 * 365 , 'año'),
+			array(60 * 60 * 24 * 30 , 'mes'),
+			array(60 * 60 * 24 * 7, 'semana'),
+			array(60 * 60 * 24 , 'día'),
+			array(60 * 60 , 'hora'),
+			array(60 , 'minuto'),
+			array(1 , 'segundo')
+		);
+	
+		for ($i = 0, $j = count($chunks); $i < $j; $i++) {
+			$seconds = $chunks[$i][0];
+			$name = $chunks[$i][1];
+			if (($count = floor($since/$seconds)) != 0) {
+				break;
+			}
+		}
+		
+		if($name == 'mes') {
+			$print = ($count == 1) ? '1 '.$name : "$count {$name}es";
+		} else {
+			$print = ($count == 1) ? '1 '.$name : "$count {$name}s";
+		}
+
+		return $print;
+	}
+
+	function reArrayFiles(&$file_post) {
+
+		$file_ary = array();
+		$file_count = count($file_post['name']);
+		$file_keys = array_keys($file_post);
+	
+		for ($i=0; $i<$file_count; $i++) {
+			foreach ($file_keys as $key) {
+				$file_ary[$i][$key] = $file_post[$key][$i];
+			}
+		}
+	
+		return $file_ary;
 	}

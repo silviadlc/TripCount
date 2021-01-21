@@ -1,4 +1,9 @@
 <?php include $_SERVER["DOCUMENT_ROOT"].'/includes/header.php' ?>
+<div id="breadcrumb">
+	<ul class="breadcrumb">
+	<li><a href="home.php">Home</a></li>
+	</ul>
+</div>
 <div class="logo">
 	<img src="../media/Logotripcuenta.png">
 </div>
@@ -48,6 +53,7 @@
 				$sql2 = $conn->query('INSERT INTO travels_users SET idUsername = '.$localUser['idUsername'].', idTravel = "'.$lastIdForTravel.'"');
 
 				if($sql && $sql2) {
+					$_SESSION['alerts'][] = array('type' => 'info', 'message' => 'Se ha creado correctamente el viaje.');
 					header('Location: /invitations.php?idTravel='.$lastIdForTravel);
 					exit;
 				}
@@ -78,14 +84,17 @@
 					</select>
 				</label>
 			</form>
-			<button class="add" onclick="showFormCustom('createTravel');">+</button>
+			<button class="add" onclick="showFormCustom('createTravel');" accesskey="+">+</button>
 		</div>
 		<table border="1" width="100%">
 			<tr>
-				<td>#</td>
-				<td>Nombre del viaje</td>
-				<td>Descripción del viaje</td>
-				<td>Moneda asignada al viaje</td>
+				<th>#</th>
+				<th>Nombre del viaje</th>
+				<th>Descripción del viaje</th>
+				<th>Moneda asignada al viaje</th>
+				<th>Creado</th>
+				<th>Última actualización</th>
+				<th>Acciones</th>
 			</tr>
 			<?php
 				if(!isset($_GET['order'])) {
@@ -107,13 +116,13 @@
 			<button class="add" onclick="showFormCustom('createTravel');">+</button>
 		</div>
 	</div>
-
+	<br><br>				
 	<form id="createTravel" method="POST" action="#" autocomplete="off">
 		<fieldset>
 			<legend>Crear un nuevo viaje</legend>
 			<label for="travelName">
 				Nombre del viaje:
-				<input type="text" name="travelName" placeholder="Inserta aquí el nombre del viaje." id="travelName" />
+				<input type="text" name="travelName" placeholder="Inserta aquí el nombre del viaje." id="travelName" maxlength="30"/>
 			</label>
 			<label for="travelDescription">
 				Descripción del viaje:
@@ -128,8 +137,8 @@
 					?>
 				</select>
 			</label>
-			<input type="submit" value="Crear viaje" name="createTravel" />
-			<input type="reset" value="Restablecer"/>
+			<button type="submit" name="createTravel" accesskey="c"/><underline class="accesskey">C</underline>rear viaje</button>
+			<!-- <input type="reset" value="Restablecer"/> -->
 		</fieldset>
 	</form>
 </div>
