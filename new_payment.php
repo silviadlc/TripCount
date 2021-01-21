@@ -17,7 +17,28 @@
         } else {
             die(showAlert('danger', 'Error desconocido.'));
         }
-    }
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savePayment'])) {
+            //$sql=$conn->prepare('SELECT max(idExpense) FROM expenses');
+            //$idExpense=implode(",",$conn);
+
+            $lastIdForTravel = $conn->lastInsertId();
+            $data['idExpense'] = filter_var($lastIDForTravel, FILTER_SANITIZE_NUMBER_INT);
+            $data['idTravel'] = filter_var($_GET['idTravel'], FILTER_SANITIZE_NUMBER_INT);
+            $data['reason'] = filter_var($_POST['reason'], FILTER_SANITIZE_STRING);
+            $data['amount'] = filter_var($_POST['amount'], FILTER_SANITIZE_STRING);
+                $sql = $conn->prepare('INSERT INTO expenses Values(:idExpense, :idUsername, :idTravel, :reason, :amount, now())
+ ');
+                $sql->bindParam(':idExpense', $data["idExpense"]);
+                $sql->bindParam(':idUsername', $localUser['idUsername']);
+                $sql->bindParam(':idTravel', $data['idTravel']);
+                $sql->bindParam(':reason', $data['reason']);
+                $sql->bindParam(':amount', $data['amount']);
+                $sql->execute();
+                header('Location: /home.php');
+                }
+            }
+        
+    
 ?>
 
 <div id="breadcrumb">
@@ -35,6 +56,10 @@
     <div class="addPayment">
     <p class="destiny">Viaje: <b><?php echo $travelContent['name']; ?></b></p>
         <form id="payment" method="post" autocomplete="off">
+            <label for="reason">
+                Concepto: 
+                <input type="text" name="reason" placeholder="Inserta un concepto corto sobre el pago." id="reason"/><br>
+            </label>
             <label for="amount">
                 Cantidad del pago:
                 <input type="number" name="amount" placeholder="Inserta aquí la cantidad" id="amount"/><br>
@@ -43,9 +68,12 @@
                 Usuario que ha pagado:
                 <select id="paymentUser" name="paymentUser">
                 <?php
-                    foreach ($_SESSION['users']['username'] as $user_data) {
-                        list($id, $user) = explode(" - ", $user_data);
-                        echo "<option name='$id'>$user</option>";
+                    $sql = $conn->prepare('SELECT "user.idUsername", "user.name", "user.lastName" from users user, travels_users trusers where "trusers.idUsername" = "user.idUsername" and idTravel ="'.$_GET['idTravel'].'"');
+                    $rows = $sql->fetchAll(PDO::FETCH_ASSOC);
+                    $i=0;
+                    foreach ($rows as $row) {
+                        $i=$i+1;
+                        echo "<option id='".$row["idUsername"]."'value='".$row["name"].$row["lastName"]."'></option>";
                     }
                 ?>     
                 </select><br>
